@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KEBZ_Communications.WebAPI", "KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI.csproj", "{75928B98-33D6-4CD4-9E24-EE595E85904E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{D7C26D3A-2198-41C8-A672-781F7523A91F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{D7C26D3A-2198-41C8-A672-781F7523A91F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D7C26D3A-2198-41C8-A672-781F7523A91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C26D3A-2198-41C8-A672-781F7523A91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C26D3A-2198-41C8-A672-781F7523A91F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
