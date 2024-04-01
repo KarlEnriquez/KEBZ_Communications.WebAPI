@@ -1,5 +1,8 @@
 using KEBZ_Communications.WebAPI.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using NLog;
+
+LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureCors();
 // Does nothing at the moment.
 builder.Services.ConfigureIISIntegration(); 
+builder.Services.ConfigureLoggerService();
 
 builder.Services.AddControllers();
 

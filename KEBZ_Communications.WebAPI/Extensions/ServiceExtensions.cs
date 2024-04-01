@@ -1,4 +1,7 @@
-﻿namespace KEBZ_Communications.WebAPI.Extensions
+﻿using Contracts;
+using LoggerService;
+
+namespace KEBZ_Communications.WebAPI.Extensions
 {
     public static class ServiceExtensions
     {
@@ -18,5 +21,10 @@
         public static void ConfigureIISIntegration(this IServiceCollection services)
         {
         }
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+        }
     }
+
 }
