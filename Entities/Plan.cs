@@ -3,6 +3,8 @@
  * Description: This file contains the definition of the Plan entity class.
  */
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace KEBZ_Communications.WebAPI.Entities
 {
     public class Plan
@@ -10,6 +12,8 @@ namespace KEBZ_Communications.WebAPI.Entities
         public int PlanId { get; set; }
         public string? PlanName { get; set; }
         public string? PlanDescription { get; set; }
+        
+        [Column(TypeName = "decimal(10, 2)")]
         public decimal Price { get; set; }
         public int DeviceLimit { get; set; }
         public int DataLimit { get; set; }
