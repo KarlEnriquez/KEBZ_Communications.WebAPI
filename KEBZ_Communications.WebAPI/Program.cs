@@ -10,9 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // CORS policy is 'disabled' at the moment.
 builder.Services.ConfigureCors();
-// Does nothing at the moment.
-builder.Services.ConfigureIISIntegration(); 
+builder.Services.ConfigureIISIntegration(); // Does nothing at the moment.
 builder.Services.ConfigureLoggerService();
+//builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
 
 builder.Services.AddControllers();
 
