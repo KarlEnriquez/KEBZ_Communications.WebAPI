@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KEBZ_Communications.WebAPI.Entities;
 
 namespace Service
 {
@@ -15,8 +16,12 @@ namespace Service
 
         public UserPlanService(IRepositoryManager repositoryManager, ILoggerManager logger)
         {
-           //_repositoryManager = repositoryManager;
+           _repositoryManager = repositoryManager;
            _logger = logger;
+        }
+
+        public IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges){
+            return _repositoryManager.UserPlan.GetAllUserPlans(trackChanges);
         }
     }
 }

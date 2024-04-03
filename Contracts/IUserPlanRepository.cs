@@ -12,9 +12,9 @@ using KEBZ_Communications.WebAPI.Entities;
 
 namespace Contracts
 {
-    internal interface IUserPlanRepository
+    public interface IUserPlanRepository
     {
-        IEnumerable<UserPlan> GetAllUserPlans();
+        IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges);
         UserPlan GetUserPlan(Guid id);
         void CreateUserPlan(UserPlan userPlan);
         void DeleteUserPlan(UserPlan userPlan);

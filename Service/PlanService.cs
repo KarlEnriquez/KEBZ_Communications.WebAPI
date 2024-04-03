@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.Contracts;
 using Contracts;
+using KEBZ_Communications.WebAPI.Entities;
 
 
 namespace Service
@@ -16,8 +17,11 @@ namespace Service
 
         public PlanService(IRepositoryManager repositoryManager, ILoggerManager logger)
         {
-           //_repositoryManager = repositoryManager;
+           _repositoryManager = repositoryManager;
            _logger = logger;
+        }
+        public IEnumerable<Plan> GetAllPlans(bool trackChanges){
+            return _repositoryManager.Plan.GetAllPlans(trackChanges);
         }
     }
 }

@@ -9,6 +9,9 @@ namespace Contracts
     public interface IRepositoryManager
     {
         IUserRepository User { get; }
+        IDeviceRepository Device { get; }
+        IPlanRepository Plan {get; }
+        IUserPlanRepository UserPlan {get; }
         void Save();
     }
 }

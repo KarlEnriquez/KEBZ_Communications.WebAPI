@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KEBZ_Communications.WebAPI.Entities;
 
 namespace Service
 {
@@ -15,8 +16,11 @@ namespace Service
 
         public DeviceService(IRepositoryManager repositoryManager, ILoggerManager logger)
         {
-           //_repositoryManager = repositoryManager;
+           _repositoryManager = repositoryManager;
            _logger = logger;
+        }
+        public IEnumerable<Device> GetAllDevices(bool trackChanges){
+            return _repositoryManager.Device.GetAllDevices(trackChanges);
         }
     }
 }
