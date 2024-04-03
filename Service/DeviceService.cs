@@ -10,13 +10,13 @@ namespace Service
 {
     public class DeviceService : IDeviceService
     {
-        //private readonly IRepositoryManager _repositoryManager;
-        //private readonly ILoggerManager _logger;
+        private readonly IRepositoryManager _repositoryManager;
+        private readonly ILoggerManager _logger;
 
-        //public DeviceService(IRepositoryManager repositoryManager, ILoggerManager logger)
-        //{
-        //    //_repositoryManager = repositoryManager;
-        //    _logger = logger;
-        //}
+        public DeviceService(IRepositoryManager repositoryManager, ILoggerManager logger)
+        {
+           //_repositoryManager = repositoryManager;
+           _logger = logger;
+        }
     }
 }
