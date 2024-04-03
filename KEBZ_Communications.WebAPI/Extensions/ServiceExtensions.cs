@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using LoggerService;
+using Service;
 using Service.Contracts;
 
 namespace KEBZ_Communications.WebAPI.Extensions
@@ -29,7 +30,7 @@ namespace KEBZ_Communications.WebAPI.Extensions
         //public static void ConfigureRepositoryManager(this IServiceCollection services)
         public static void ConfigureServiceManager(this IServiceCollection services)
         {
-            services.AddScoped<IServiceManager, IServiceManager>();
+            services.AddScoped<IServiceManager, ServiceManager>();
         }
         //public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
         //{
