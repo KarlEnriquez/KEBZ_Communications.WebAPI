@@ -9,8 +9,8 @@ namespace KEBZ_Communications.WebAPI.Entities
 {
     public class UserPlan
     {
-        public int UserId { get; set; }
-        public int PlanId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid PlanId { get; set; }
 
         public User? User { get; set; }
         public Plan? Plan { get; set; }

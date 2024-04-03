@@ -7,7 +7,7 @@ namespace KEBZ_Communications.WebAPI.Entities
 {
     public class User
     {
-        public int UserId {  get; set; }
+        public Guid UserId {  get; set; }
         public string? Username {  get; set; }
         private string? Password { get; set; }
         public string? Email { get; set; }

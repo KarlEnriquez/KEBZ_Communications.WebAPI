@@ -11,10 +11,10 @@ namespace KEBZ_Communications.WebAPI.Entities
 {
     public class Device
     {
-        public int DeviceId { get; set; }
+        public Guid DeviceId { get; set; }
 
         [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public string? PhoneNumber { get; set; }
         public string? IMEI { get; set; }
         public string? Manufacturer { get; set; }
