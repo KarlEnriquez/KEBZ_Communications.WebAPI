@@ -15,7 +15,7 @@ namespace Contracts
     public interface IPlanRepository
     {
         IEnumerable<Plan> GetAllPlans(bool trackChanges);
-        Plan GetPlan(bool trackChanges);
+        Plan GetPlan(Guid id, bool trackChanges);
         void CreatePlan(Plan plan);
         void DeletePlan(Plan plan);
     }
