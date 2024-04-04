@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Service
 {
@@ -15,12 +16,12 @@ namespace Service
         private readonly Lazy<IPlanService> _planService;
         private readonly Lazy<IDeviceService> _deviceService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager)
+        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapperManger)
         {
-            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, loggerManager));
-            _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, loggerManager));
-            _planService = new Lazy<IPlanService>(() => new PlanService(repositoryManager, loggerManager));
-            _deviceService = new Lazy<IDeviceService>(() => new DeviceService(repositoryManager, loggerManager));
+            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, loggerManager, mapperManger));
+            _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, loggerManager, mapperManger));
+            _planService = new Lazy<IPlanService>(() => new PlanService(repositoryManager, loggerManager, mapperManger));
+            _deviceService = new Lazy<IDeviceService>(() => new DeviceService(repositoryManager, loggerManager, mapperManger));
         }
 
         public IUserService User => _userService.Value;

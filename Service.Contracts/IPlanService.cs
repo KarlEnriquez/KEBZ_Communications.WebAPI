@@ -9,6 +9,6 @@ namespace Service.Contracts
 {
     public interface IPlanService
     {
-        IEnumerable<Plan> GetAllPlans(bool trackChanges);
+        // IEnumerable<Plan> GetAllPlans(bool trackChanges);
     }
 }
