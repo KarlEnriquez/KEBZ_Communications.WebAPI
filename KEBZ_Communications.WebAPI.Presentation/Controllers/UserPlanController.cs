@@ -24,6 +24,73 @@ namespace KEBZ_Communications.Presentation.Controllers
             var UserPlans = _service.UserPlan.GetAllUserPlans(trackChanges: false);
             return  Ok(UserPlans);
         }
+        
+        // [HttpGet("{id:guid}", Name = "UserPlanById")]
+        // public  IActionResult GetUserPlan(Guid id)
+        // {
+        //     var UserPlan =  _service.UserPlan.GetUserPlan(id, trackChanges: false);
+        //     return Ok(UserPlan);
+            
+        // }
+        
+
+        // [HttpPost]
+        // public  IActionResult CreateUserPlan([FromBody] UserPlanForCreationDto UserPlan)
+        // {
+        //     if (UserPlan == null)
+        //         return BadRequest("UserPlanForCreationDto object is null");
+
+        //     if (!ModelState.IsValid)
+        //         return UnprocessableEntity(ModelState);
+            
+        //     var createdUserPlan =  _service.UserPlan.CreateUserPlan(UserPlan);
+        //     return CreatedAtRoute("UserPlanById", new { id = createdUserPlan.Id }, createdUserPlan);
+        // }
+
+        // [HttpDelete("{id:guid}")]
+        // public  IActionResult DeleteUserPlan(Guid id)
+        // {
+        //      _service.UserPlan.DeleteUserPlan(id, trackChanges: false);
+        //     return NoContent();
+        // }
+
+        // [HttpPut("{id:guid}")]
+        // public  IActionResult UpdateUserPlan(Guid id, [FromBody] UserPlanForUpdateDto UserPlan)
+        // {
+        //     if (UserPlan == null)
+        //         return BadRequest("UserPlanForUpdateDto object is null");
+
+        //     if (!ModelState.IsValid)
+        //         return UnprocessableEntity(ModelState);
+
+        //      _service.UserPlan.UpdateUserPlan(id, UserPlan, trackChanges: true);
+        //     return NoContent();
+        // }
+
+        // /// <summary>
+        // /// Patch Operations
+        // /// Add, Replace, Remove
+        // /// Copy, Move, Test
+        // /// Properties within a Patch Request:
+        // /// op: operation, path: path to the property, value: value to be used
+        // [HttpPatch("{id:guid}")]
+        // public  IActionResult PartiallyUpdateUserPlan(Guid id, [FromBody] JsonPatchDocument<UserPlanForUpdateDto> patchDocument)
+        // {
+        //     if (patchDocument is null)
+        //         return BadRequest("patchDocument object sent from client is null");
+
+        //     var result =  _service.UserPlan.GetUserPlanForPatch(id, trackChanges: true);
+        //     patchDocument.ApplyTo(result.UserPlanForUpdate);
+
+        //     TryValidateModel(result.UserPlanForUpdate);
+
+        //     if (!ModelState.IsValid)
+        //         return UnprocessableEntity(ModelState);
+
+        //      _service.UserPlan.SaveChangesForPatch(result.UserPlanForUpdate, result.UserPlanEntity);
+
+        //     return NoContent();
+        // }
 
     }
 }
