@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAllUsers(bool trackChanges);
+        // IEnumerable<User> GetAllUsers(bool trackChanges);
 
     }
 }

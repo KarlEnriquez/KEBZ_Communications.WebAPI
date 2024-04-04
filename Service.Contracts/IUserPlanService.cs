@@ -9,6 +9,6 @@ namespace Service.Contracts
 {
     public interface IUserPlanService
     {
-        IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges);
+        // IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges);
     }
 }

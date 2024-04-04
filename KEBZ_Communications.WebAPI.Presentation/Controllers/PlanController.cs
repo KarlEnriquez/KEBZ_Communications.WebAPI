@@ -18,12 +18,12 @@ namespace KEBZ_Communications.Presentation.Controllers
         public PlanController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        [HttpGet]
-        public IActionResult GetPlans()
-        {
-            var Plans = _service.Plan.GetAllPlans(trackChanges: false);
-            return  Ok(Plans);
-        }
+        // [HttpGet]
+        // public IActionResult GetPlans()
+        // {
+        //     var Plans = _service.Plan.GetAllPlans(trackChanges: false);
+        //     return  Ok(Plans);
+        // }
 
         // [HttpGet("{id:guid}", Name = "PlanById")]
         // public  IActionResult GetPlan(Guid id)
