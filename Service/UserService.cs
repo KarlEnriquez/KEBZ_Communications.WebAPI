@@ -51,9 +51,7 @@ namespace Service
             try
             {
                 var users = _repositoryManager.User.GetAllUsers(trackChanges);
-                var usersDto = users.Select(
-                    u => new UserDto(u.UserId, u.Username ?? "", u.Email ?? "", u.FirstName ?? "", u.LastName ?? "", u.CreatedAt, u.status))
-                    .ToList();
+                var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
                 return usersDto;
             } 
             catch (Exception ex)

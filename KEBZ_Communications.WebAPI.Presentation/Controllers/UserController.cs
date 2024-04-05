@@ -18,12 +18,12 @@ namespace KEBZ_Communications.Presentation.Controllers
         public UserController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        //[HttpGet]
-        //public IActionResult GetUsers()
-        //{
-        //    var users = _service.User.GetAllUsers(trackChanges: false);
-        //    return Ok(users);
-        //}
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            var users = _service.User.GetAllUsers(trackChanges: false);
+            return Ok(users);
+        }
 
 
         // [HttpGet("{id:guid}", Name = "UserById")]
