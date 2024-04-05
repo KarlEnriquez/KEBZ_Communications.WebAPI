@@ -1,6 +1,6 @@
 ﻿using Service.Contracts;
 using Contracts;
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using AutoMapper;
 using Shared.DataTransferObjects;
 

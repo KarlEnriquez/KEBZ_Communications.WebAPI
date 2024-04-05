@@ -5,7 +5,7 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KEBZ_Communications.WebAPI.Entities
+namespace Entities
 {
     public class Plan
     {

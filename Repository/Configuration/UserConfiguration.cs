@@ -5,7 +5,7 @@
  * Is used in the RepositoryContext.cs file 
  */
 
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

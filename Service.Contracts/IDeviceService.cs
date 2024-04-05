@@ -1,4 +1,4 @@
-﻿using KEBZ_Communications.WebAPI.Entities;
+﻿using Entities;
 
 namespace Service.Contracts
 {
