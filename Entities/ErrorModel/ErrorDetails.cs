@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-namespace Entities.ErrorModels
+namespace Entities.ErrorModel
 {
     public class ErrorDetails
     {
