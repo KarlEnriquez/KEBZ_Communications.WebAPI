@@ -2,6 +2,7 @@
 using Contracts;
 using KEBZ_Communications.WebAPI.Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
 
 namespace Service
 {
@@ -43,6 +44,24 @@ namespace Service
         //     var UsersDto = _mapper.Map<IEnumerable<UserDto>>(Users);
         //     return UsersDto;
         // }
+
+        //temporary GetAllUsers method
+        public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
+        {
+            try
+            {
+                var users = _repositoryManager.User.GetAllUsers(trackChanges);
+                var usersDto = users.Select(
+                    u => new UserDto(u.UserId, u.Username ?? "", u.Email ?? "", u.FirstName ?? "", u.LastName ?? "", u.CreatedAt, u.status))
+                    .ToList();
+                return usersDto;
+            } 
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong in the {nameof(GetAllUsers)} action {ex}");
+                throw;
+            }
+        }
 
         // public UserDto GetUser(Guid UserId, bool trackChanges)
         // {

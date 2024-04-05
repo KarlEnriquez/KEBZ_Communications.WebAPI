@@ -18,12 +18,12 @@ namespace KEBZ_Communications.Presentation.Controllers
         public UserController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        // [HttpGet]
-        // public IActionResult GetUsers()
-        // {
-        //     var users = _service.User.GetAllUsers(trackChanges: false);
-        //     return  Ok(users);
-        // }
+        //[HttpGet]
+        //public IActionResult GetUsers()
+        //{
+        //    var users = _service.User.GetAllUsers(trackChanges: false);
+        //    return Ok(users);
+        //}
 
 
         // [HttpGet("{id:guid}", Name = "UserById")]
@@ -31,9 +31,9 @@ namespace KEBZ_Communications.Presentation.Controllers
         // {
         //     var User =  _service.User.GetUser(id, trackChanges: false);
         //     return Ok(User);
-            
+
         // }
-        
+
 
         // [HttpPost]
         // public  IActionResult CreateUser([FromBody] UserForCreationDto User)
@@ -43,7 +43,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         //     if (!ModelState.IsValid)
         //         return UnprocessableEntity(ModelState);
-            
+
         //     var createdUser =  _service.User.CreateUser(User);
         //     return CreatedAtRoute("UserById", new { id = createdUser.Id }, createdUser);
         // }
