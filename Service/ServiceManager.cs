@@ -16,12 +16,12 @@ namespace Service
         private readonly Lazy<IPlanService> _planService;
         private readonly Lazy<IDeviceService> _deviceService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapperManger)
+        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapperManager)
         {
-            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, loggerManager, mapperManger));
-            _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, loggerManager, mapperManger));
-            _planService = new Lazy<IPlanService>(() => new PlanService(repositoryManager, loggerManager, mapperManger));
-            _deviceService = new Lazy<IDeviceService>(() => new DeviceService(repositoryManager, loggerManager, mapperManger));
+            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, loggerManager, mapperManager));
+            _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, loggerManager, mapperManager));
+            _planService = new Lazy<IPlanService>(() => new PlanService(repositoryManager, loggerManager, mapperManager));
+            _deviceService = new Lazy<IDeviceService>(() => new DeviceService(repositoryManager, loggerManager, mapperManager));
         }
 
         public IUserService User => _userService.Value;

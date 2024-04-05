@@ -4,7 +4,12 @@ using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.WebAPI
 {
-    public class MappingProfile
+    public class MappingProfile : Profile
     {
+        public MappingProfile()
+        {
+            CreateMap<User, UserDto>();
+
+        }
     }
 }
