@@ -21,19 +21,17 @@ namespace KEBZ_Communications.Presentation.Controllers
         [HttpGet]
         public IActionResult GetUsers()
         {
-            throw new Exception("Exception"); // Testing exception handling
             var users = _service.User.GetAllUsers(trackChanges: false);
             return Ok(users);
         }
 
+        [HttpGet("{id:guid}", Name = "UserById")]
+        public IActionResult GetUser(Guid id)
+        {
+            var User = _service.User.GetUser(id, trackChanges: false);
+            return Ok(User);
 
-        // [HttpGet("{id:guid}", Name = "UserById")]
-        // public  IActionResult GetUser(Guid id)
-        // {
-        //     var User =  _service.User.GetUser(id, trackChanges: false);
-        //     return Ok(User);
-
-        // }
+        }
 
 
         // [HttpPost]

@@ -37,32 +37,32 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
-
-        // public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
-        // {
-        //     var Users = _repositoryManager.User.GetAllUsers(trackChanges);
-        //     var UsersDto = _mapper.Map<IEnumerable<UserDto>>(Users);
-        //     return UsersDto;
-        // }
-
-        //temporary GetAllUsers method
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {
-            var users = _repositoryManager.User.GetAllUsers(trackChanges);
-            var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
-            return usersDto;
+            var Users = _repositoryManager.User.GetAllUsers(trackChanges);
+            var UsersDto = _mapper.Map<IEnumerable<UserDto>>(Users);
+            return UsersDto;
         }
 
-        // public UserDto GetUser(Guid UserId, bool trackChanges)
-        // {
-        //     var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (User == null)
-        //         throw new UserNotFoundException(UserId);
+        // temporary GetUser
+        public UserDto GetUser(Guid UserId, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            // TODO: check for null
+            var userDto = _mapper.Map<UserDto>(User);
+            return userDto;
+        }
 
-        //     var UserDto = _mapper.Map<UserDto>(User);
+        //public UserDto GetUser(Guid UserId, bool trackChanges)
+        //{
+        //    var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+        //    if (User == null)
+        //        throw new UserNotFoundException(UserId);
 
-        //     return UserDto;
-        // }
+        //    var UserDto = _mapper.Map<UserDto>(User);
+
+        //    return UserDto;
+        //}
 
 
         // public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)

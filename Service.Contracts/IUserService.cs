@@ -12,5 +12,7 @@ namespace Service.Contracts
     {
         IEnumerable<UserDto> GetAllUsers(bool trackChanges);
 
+        UserDto GetUser(Guid id, bool trackChanges);
+
     }
 }
