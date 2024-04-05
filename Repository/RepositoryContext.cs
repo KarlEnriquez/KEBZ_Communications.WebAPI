@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KEBZ_Communications.WebAPI.Entities;
+using Repository.Configuration;
 
 namespace Repository
 {
@@ -24,6 +25,12 @@ namespace Repository
         {
             modelBuilder.Entity<UserPlan>()
                 .HasKey(c => new { c.UserId, c.PlanId });
+
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new PlanConfiguration());
+            modelBuilder.ApplyConfiguration(new DeviceConfiguration());
+            modelBuilder.ApplyConfiguration(new UserPlanConfiguration());
+
         }
     }
 }

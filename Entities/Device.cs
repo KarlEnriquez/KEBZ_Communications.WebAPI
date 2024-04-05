@@ -16,6 +16,7 @@ namespace KEBZ_Communications.WebAPI.Entities
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
         public string? PhoneNumber { get; set; }
+        [MaxLength(15)] // IMEI is 15 digits long
         public string? IMEI { get; set; }
         public string? Manufacturer { get; set; }
         public string? Model { get; set; }
