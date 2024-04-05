@@ -21,6 +21,7 @@ namespace KEBZ_Communications.Presentation.Controllers
         [HttpGet]
         public IActionResult GetUsers()
         {
+            throw new Exception("Exception"); // Testing exception handling
             var users = _service.User.GetAllUsers(trackChanges: false);
             return Ok(users);
         }

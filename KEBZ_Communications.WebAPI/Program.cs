@@ -1,6 +1,8 @@
 using KEBZ_Communications.WebAPI.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
+using Contracts;
+using KEBZ_Communications.WebAPI;
 
 LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
@@ -16,21 +18,17 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
+app.UseExceptionHandler(opt => { });
 
 // Configure the HTTP request pipeline.
 
 
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsProduction())
 {
-    // Shows detailed error information during development.
-    app.UseDeveloperExceptionPage();
-} 
-else
-{
-    // Hides detailed error information in production.
     app.UseHsts();
 }
 

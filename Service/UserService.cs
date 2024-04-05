@@ -48,17 +48,9 @@ namespace Service
         //temporary GetAllUsers method
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {
-            try
-            {
-                var users = _repositoryManager.User.GetAllUsers(trackChanges);
-                var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
-                return usersDto;
-            } 
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllUsers)} action {ex}");
-                throw;
-            }
+            var users = _repositoryManager.User.GetAllUsers(trackChanges);
+            var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
+            return usersDto;
         }
 
         // public UserDto GetUser(Guid UserId, bool trackChanges)
