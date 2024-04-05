@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.Contracts;
 using Contracts;
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using AutoMapper;
 
 namespace Service

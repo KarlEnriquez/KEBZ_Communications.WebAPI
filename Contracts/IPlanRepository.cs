@@ -3,7 +3,7 @@
  * Description: This file contains the definition of the IPlanRepository contracts class.
  */
 
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

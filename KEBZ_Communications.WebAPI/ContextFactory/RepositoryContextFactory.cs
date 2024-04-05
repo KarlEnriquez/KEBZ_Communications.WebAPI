@@ -1,4 +1,4 @@
-﻿using KEBZ_Communications.WebAPI.Entities;
+﻿using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Repository;

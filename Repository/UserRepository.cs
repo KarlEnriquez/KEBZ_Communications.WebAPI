@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Contracts;
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository

@@ -3,7 +3,7 @@
  * Description: This file contains the definition of the User entity class.
  */
 
-namespace KEBZ_Communications.WebAPI.Entities
+namespace Entities
 {
     public class User
     {

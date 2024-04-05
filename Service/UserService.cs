@@ -1,7 +1,8 @@
 ﻿using Service.Contracts;
 using Contracts;
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
 
 namespace Service
 {
@@ -36,24 +37,23 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
+        public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
+        {
+            var Users = _repositoryManager.User.GetAllUsers(trackChanges);
+            var UsersDto = _mapper.Map<IEnumerable<UserDto>>(Users);
+            return UsersDto;
+        }
 
-        // public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
-        // {
-        //     var Users = _repositoryManager.User.GetAllUsers(trackChanges);
-        //     var UsersDto = _mapper.Map<IEnumerable<UserDto>>(Users);
-        //     return UsersDto;
-        // }
+        public UserDto GetUser(Guid UserId, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (User == null)
+                throw new UserNotFoundException(UserId);
 
-        // public UserDto GetUser(Guid UserId, bool trackChanges)
-        // {
-        //     var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (User == null)
-        //         throw new UserNotFoundException(UserId);
+            var UserDto = _mapper.Map<UserDto>(User);
 
-        //     var UserDto = _mapper.Map<UserDto>(User);
-
-        //     return UserDto;
-        // }
+            return UserDto;
+        }
 
 
         // public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
