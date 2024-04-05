@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities;
 using Entities.ErrorModel;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
@@ -22,11 +23,11 @@ namespace KEBZ_Communications.WebAPI
             var contextFeature = httpContext.Features.Get<IExceptionHandlerFeature>();
             if (contextFeature != null)
             {
-                //httpContext.Response.StatusCode = contextFeature.Error switch
-                //{
-                //    NotFoundException => StatusCodes.Status404NotFound,
-                //    _ => StatusCodes.Status500InternalServerError
-                //};
+                httpContext.Response.StatusCode = contextFeature.Error switch
+                {
+                    NotFoundException => StatusCodes.Status404NotFound,
+                    _ => StatusCodes.Status500InternalServerError
+                };
                 _logger.LogError($"Something went wrong: {contextFeature.Error}");
 
                 await httpContext.Response.WriteAsync(new ErrorDetails()

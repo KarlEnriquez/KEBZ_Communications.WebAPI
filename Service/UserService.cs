@@ -44,25 +44,16 @@ namespace Service
             return UsersDto;
         }
 
-        // temporary GetUser
         public UserDto GetUser(Guid UserId, bool trackChanges)
         {
             var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-            // TODO: check for null
-            var userDto = _mapper.Map<UserDto>(User);
-            return userDto;
+            if (User == null)
+                throw new UserNotFoundException(UserId);
+
+            var UserDto = _mapper.Map<UserDto>(User);
+
+            return UserDto;
         }
-
-        //public UserDto GetUser(Guid UserId, bool trackChanges)
-        //{
-        //    var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //    if (User == null)
-        //        throw new UserNotFoundException(UserId);
-
-        //    var UserDto = _mapper.Map<UserDto>(User);
-
-        //    return UserDto;
-        //}
 
 
         // public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
