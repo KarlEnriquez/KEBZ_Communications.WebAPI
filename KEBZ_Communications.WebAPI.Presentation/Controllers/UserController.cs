@@ -73,24 +73,24 @@ namespace KEBZ_Communications.Presentation.Controllers
         // /// Copy, Move, Test
         // /// Properties within a Patch Request:
         // /// op: operation, path: path to the property, value: value to be used
-        // [HttpPatch("{id:guid}")]
-        // public  IActionResult PartiallyUpdateUser(Guid id, [FromBody] JsonPatchDocument<UserForUpdateDto> patchDocument)
-        // {
-        //     if (patchDocument is null)
-        //         return BadRequest("patchDocument object sent from client is null");
+        [HttpPatch("{id:guid}")]
+        public IActionResult PartiallyUpdateUser(Guid id, [FromBody] JsonPatchDocument<UserForUpdateDto> patchDocument)
+        {
+            if (patchDocument is null)
+                return BadRequest("patchDocument object sent from client is null");
 
-        //     var result =  _service.User.GetUserForPatch(id, trackChanges: true);
-        //     patchDocument.ApplyTo(result.UserForUpdate);
+            var result = _service.User.GetUserForPatch(id, trackChanges: true);
+            patchDocument.ApplyTo(result.UserForUpdate);
 
-        //     TryValidateModel(result.UserForUpdate);
+            TryValidateModel(result.UserForUpdate);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.User.SaveChangesForPatch(result.UserForUpdate, result.UserEntity);
+            _service.User.SaveChangesForPatch(result.UserForUpdate, result.UserEntity);
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
     }
 }

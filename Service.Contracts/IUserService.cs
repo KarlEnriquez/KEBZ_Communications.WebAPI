@@ -15,8 +15,8 @@ namespace Service.Contracts
         IEnumerable<UserDto> GetAllUsers(bool trackChanges);
 
         UserDto GetUser(Guid id, bool trackChanges);
-        //(UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges);
-        //void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity);
+        (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges);
+        void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity);
         void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges);
 
     }

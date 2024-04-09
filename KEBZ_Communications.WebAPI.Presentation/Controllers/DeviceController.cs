@@ -18,20 +18,20 @@ namespace KEBZ_Communications.Presentation.Controllers
         public DeviceController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        [HttpGet]
-        public IActionResult GetDevices()
-        {
-            var Devices = _service.Device.GetAllDevices(trackChanges: false);
-            return Ok(Devices);
-        }
+         [HttpGet]
+         public IActionResult GetDevices()
+         {
+             var Devices = _service.Device.GetAllDevices(trackChanges: false);
+             return  Ok(Devices);
+         }
 
-        [HttpGet("{id:guid}", Name = "DeviceById")]
-        public IActionResult GetDevice(Guid id)
-        {
-            var Device = _service.Device.GetDevice(id, trackChanges: false);
-            return Ok(Device);
+         [HttpGet("{id:guid}", Name = "DeviceById")]
+         public  IActionResult GetDevice(Guid id)
+         {
+             var Device =  _service.Device.GetDevice(id, trackChanges: false);
+             return Ok(Device);
 
-        }
+         }
 
 
         // [HttpPost]

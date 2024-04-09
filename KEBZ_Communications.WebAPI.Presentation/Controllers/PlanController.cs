@@ -18,21 +18,21 @@ namespace KEBZ_Communications.Presentation.Controllers
         public PlanController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        [HttpGet]
-        public IActionResult GetPlans()
-        {
-            var Plans = _service.Plan.GetAllPlans(trackChanges: false);
-            return Ok(Plans);
-        }
+         [HttpGet]
+         public IActionResult GetPlans()
+         {
+             var Plans = _service.Plan.GetAllPlans(trackChanges: false);
+             return  Ok(Plans);
+         }
 
-        [HttpGet("{id:guid}", Name = "PlanById")]
-        public IActionResult GetPlan(Guid id)
-        {
-            var Plan = _service.Plan.GetPlan(id, trackChanges: false);
-            return Ok(Plan);
-
-        }
-
+         [HttpGet("{id:guid}", Name = "PlanById")]
+         public  IActionResult GetPlan(Guid id)
+         {
+             var Plan =  _service.Plan.GetPlan(id, trackChanges: false);
+             return Ok(Plan);
+            
+         }
+        
 
         // [HttpPost]
         // public  IActionResult CreatePlan([FromBody] PlanForCreationDto Plan)
@@ -42,7 +42,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         //     if (!ModelState.IsValid)
         //         return UnprocessableEntity(ModelState);
-
+            
         //     var createdPlan =  _service.Plan.CreatePlan(Plan);
         //     return CreatedAtRoute("PlanById", new { id = createdPlan.Id }, createdPlan);
         // }

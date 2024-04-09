@@ -56,22 +56,21 @@ namespace Service
             return UserDto;
         }
 
+        public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
+        {
+            var UserEntity = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (UserEntity == null)
+                throw new UserNotFoundException(UserId);
 
-        // public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
-        // {
-        //     var UserEntity = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (UserEntity == null)
-        //         throw new UserNotFoundException(UserId);
+            var UserForUpdate = _mapper.Map<UserForUpdateDto>(UserEntity);
+            return (UserForUpdate, UserEntity);
+        }
 
-        //     var UserForUpdate = _mapper.Map<UserForUpdateDto>(UserEntity);
-        //     return (UserForUpdate, UserEntity);
-        // }
-
-        // public void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity)
-        // {
-        //     _mapper.Map(UserForUpdate, UserEntity);
-        //     _repositoryManager.Save();
-        // }
+        public void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity)
+        {
+            _mapper.Map(UserForUpdate, UserEntity);
+            _repositoryManager.Save();
+        }
 
         public void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges)
         {
