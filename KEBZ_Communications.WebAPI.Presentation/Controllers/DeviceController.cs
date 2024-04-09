@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -34,25 +35,25 @@ namespace KEBZ_Communications.Presentation.Controllers
          }
 
 
-        // [HttpPost]
-        // public  IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
-        // {
-        //     if (Device == null)
-        //         return BadRequest("DeviceForCreationDto object is null");
+        [HttpPost]
+        public IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
+        {
+            if (Device == null)
+                return BadRequest("DeviceForCreationDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //     var createdDevice =  _service.Device.CreateDevice(Device);
-        //     return CreatedAtRoute("DeviceById", new { id = createdDevice.Id }, createdDevice);
-        // }
+            var createdDevice = _service.Device.CreateDevice(Device);
+            return CreatedAtRoute("DeviceById", new { id = createdDevice.DeviceId }, createdDevice);
+        }
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeleteDevice(Guid id)
-        // {
-        //      _service.Device.DeleteDevice(id, trackChanges: false);
-        //     return NoContent();
-        // }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteDevice(Guid id)
+        {
+            _service.Device.DeleteDevice(id, trackChanges: false);
+            return NoContent();
+        }
 
         // [HttpPut("{id:guid}")]
         // public  IActionResult UpdateDevice(Guid id, [FromBody] DeviceForUpdateDto Device)

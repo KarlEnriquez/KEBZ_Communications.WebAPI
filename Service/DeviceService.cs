@@ -25,24 +25,24 @@ namespace Service
             _logger = logger;
             _mapper = mapper;
         }
-        // public DeviceDto CreateDevice(DeviceForCreationDto Device)
-        // {
-        //     var DeviceEntity = _mapper.Map<Device>(Device);
-        //     _repositoryManager.Device.CreateDevice(DeviceEntity);
-        //     _repositoryManager.Save();
-        //     var DeviceToReturn = _mapper.Map<DeviceDto>(DeviceEntity);
-        //     return DeviceToReturn;
-        // }
+        public DeviceDto CreateDevice(DeviceForCreationDto Device)
+        {
+            var DeviceEntity = _mapper.Map<Device>(Device);
+            _repositoryManager.Device.CreateDevice(DeviceEntity);
+            _repositoryManager.Save();
+            var DeviceToReturn = _mapper.Map<DeviceDto>(DeviceEntity);
+            return DeviceToReturn;
+        }
 
-        // public void DeleteDevice(Guid DeviceId, bool trackChanges)
-        // {
-        //     var Device = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
-        //     if (Device == null)
-        //         throw new DeviceNotFoundException(DeviceId);
+        public void DeleteDevice(Guid DeviceId, bool trackChanges)
+        {
+            var Device = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
+            if (Device == null)
+                throw new DeviceNotFoundException(DeviceId);
 
-        //     _repositoryManager.Device.DeleteDevice(Device);
-        //     _repositoryManager.Save();
-        // }
+            _repositoryManager.Device.DeleteDevice(Device);
+            _repositoryManager.Save();
+        }
 
         public IEnumerable<DeviceDto> GetAllDevices(bool trackChanges)
         {

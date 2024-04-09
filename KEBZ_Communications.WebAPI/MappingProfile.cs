@@ -14,6 +14,7 @@ namespace KEBZ_Communications.WebAPI
             CreateMap<UserPlan, UserPlanDto>();
             CreateMap<UserForCreationDto, User>();
             CreateMap<UserForUpdateDto, User>().ReverseMap();
+            CreateMap<DeviceForCreationDto, Device>();
 
         }
     }

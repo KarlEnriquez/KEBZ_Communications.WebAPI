@@ -5,7 +5,8 @@ namespace Service.Contracts
 {
     public interface IDeviceService
     {
-        // IEnumerable<Device> GetAllDevices(bool trackChanges);
+        DeviceDto CreateDevice(DeviceForCreationDto Device);
+        void DeleteDevice(Guid DeviceId, bool trackChanges);
         IEnumerable<DeviceDto> GetAllDevices(bool trackChanges);
 
         DeviceDto GetDevice(Guid id, bool trackChanges);
