@@ -7,6 +7,8 @@ using Service.Contracts;
 using Contracts;
 using Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -42,23 +44,23 @@ namespace Service
         // }
 
 
-        // public IEnumerable<PlanDto> GetAllPlans(bool trackChanges)
-        // {
-        //     var Plans = _repositoryManager.Plan.GetAllPlans(trackChanges);
-        //     var PlansDto = _mapper.Map<IEnumerable<PlanDto>>(Plans);
-        //     return PlansDto;
-        // }
+        public IEnumerable<PlanDto> GetAllPlans(bool trackChanges)
+        {
+            var Plans = _repositoryManager.Plan.GetAllPlans(trackChanges);
+            var PlansDto = _mapper.Map<IEnumerable<PlanDto>>(Plans);
+            return PlansDto;
+        }
 
-        // public PlanDto GetPlan(Guid PlanId, bool trackChanges)
-        // {
-        //     var Plan = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
-        //     if (Plan == null)
-        //         throw new PlanNotFoundException(PlanId);
+        public PlanDto GetPlan(Guid PlanId, bool trackChanges)
+        {
+            var Plan = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
+            if (Plan == null)
+                throw new PlanNotFoundException(PlanId);
 
-        //     var PlanDto = _mapper.Map<PlanDto>(Plan);
+            var PlanDto = _mapper.Map<PlanDto>(Plan);
 
-        //     return PlanDto;
-        // }
+            return PlanDto;
+        }
 
 
         // public (PlanForUpdateDto PlanForUpdate, Plan PlanEntity) GetPlanForPatch(Guid PlanId, bool trackChanges)
