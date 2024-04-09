@@ -63,21 +63,21 @@ namespace Service
         }
 
 
-        // public (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges)
-        // {
-        //     var DeviceEntity = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
-        //     if (DeviceEntity == null)
-        //         throw new DeviceNotFoundException(DeviceId);
+        public (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges)
+        {
+            var DeviceEntity = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
+            if (DeviceEntity == null)
+                throw new DeviceNotFoundException(DeviceId);
 
-        //     var DeviceForUpdate = _mapper.Map<DeviceForUpdateDto>(DeviceEntity);
-        //     return (DeviceForUpdate, DeviceEntity);
-        // }
+            var DeviceForUpdate = _mapper.Map<DeviceForUpdateDto>(DeviceEntity);
+            return (DeviceForUpdate, DeviceEntity);
+        }
 
-        // public void SaveChangesForPatch(DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity)
-        // {
-        //     _mapper.Map(DeviceForUpdate, DeviceEntity);
-        //     _repositoryManager.Save();
-        // }
+        public void SaveChangesForPatch(DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity)
+        {
+            _mapper.Map(DeviceForUpdate, DeviceEntity);
+            _repositoryManager.Save();
+        }
 
         public void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges)
         {

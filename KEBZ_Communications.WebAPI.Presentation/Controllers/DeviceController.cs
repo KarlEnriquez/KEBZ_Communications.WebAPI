@@ -68,30 +68,30 @@ namespace KEBZ_Communications.Presentation.Controllers
             return NoContent();
         }
 
-        // /// <summary>
-        // /// Patch Operations
-        // /// Add, Replace, Remove
-        // /// Copy, Move, Test
-        // /// Properties within a Patch Request:
-        // /// op: operation, path: path to the property, value: value to be used
-        // [HttpPatch("{id:guid}")]
-        // public  IActionResult PartiallyUpdateDevice(Guid id, [FromBody] JsonPatchDocument<DeviceForUpdateDto> patchDocument)
-        // {
-        //     if (patchDocument is null)
-        //         return BadRequest("patchDocument object sent from client is null");
+        /// <summary>
+        /// Patch Operations
+        /// Add, Replace, Remove
+        /// Copy, Move, Test
+        /// Properties within a Patch Request:
+        /// op: operation, path: path to the property, value: value to be used
+        [HttpPatch("{id:guid}")]
+        public IActionResult PartiallyUpdateDevice(Guid id, [FromBody] JsonPatchDocument<DeviceForUpdateDto> patchDocument)
+        {
+            if (patchDocument is null)
+                return BadRequest("patchDocument object sent from client is null");
 
-        //     var result =  _service.Device.GetDeviceForPatch(id, trackChanges: true);
-        //     patchDocument.ApplyTo(result.DeviceForUpdate);
+            var result = _service.Device.GetDeviceForPatch(id, trackChanges: true);
+            patchDocument.ApplyTo(result.DeviceForUpdate);
 
-        //     TryValidateModel(result.DeviceForUpdate);
+            TryValidateModel(result.DeviceForUpdate);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.Device.SaveChangesForPatch(result.DeviceForUpdate, result.DeviceEntity);
+            _service.Device.SaveChangesForPatch(result.DeviceForUpdate, result.DeviceEntity);
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
 
     }
