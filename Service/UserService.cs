@@ -3,6 +3,7 @@ using Contracts;
 using Entities;
 using AutoMapper;
 using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
