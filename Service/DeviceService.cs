@@ -79,14 +79,14 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
-        // public void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges)
-        // {
-        //     var DeviceEntity = _repositoryManager.Device.GetDevice(id, trackChanges);
-        //     if (DeviceEntity == null)
-        //         throw new DeviceNotFoundException(id);
+        public void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges)
+        {
+            var DeviceEntity = _repositoryManager.Device.GetDevice(id, trackChanges);
+            if (DeviceEntity == null)
+                throw new DeviceNotFoundException(id);
 
-        //     _mapper.Map(DeviceForUpdate, DeviceEntity);
-        //     _repositoryManager.Save();
-        // }
+            _mapper.Map(DeviceForUpdate, DeviceEntity);
+            _repositoryManager.Save();
+        }
     }
 }

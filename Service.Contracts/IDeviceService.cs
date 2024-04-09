@@ -10,5 +10,7 @@ namespace Service.Contracts
         IEnumerable<DeviceDto> GetAllDevices(bool trackChanges);
 
         DeviceDto GetDevice(Guid id, bool trackChanges);
+
+        void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges);
     }
 }

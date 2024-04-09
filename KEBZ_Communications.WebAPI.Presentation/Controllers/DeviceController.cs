@@ -55,18 +55,18 @@ namespace KEBZ_Communications.Presentation.Controllers
             return NoContent();
         }
 
-        // [HttpPut("{id:guid}")]
-        // public  IActionResult UpdateDevice(Guid id, [FromBody] DeviceForUpdateDto Device)
-        // {
-        //     if (Device == null)
-        //         return BadRequest("DeviceForUpdateDto object is null");
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateDevice(Guid id, [FromBody] DeviceForUpdateDto Device)
+        {
+            if (Device == null)
+                return BadRequest("DeviceForUpdateDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.Device.UpdateDevice(id, Device, trackChanges: true);
-        //     return NoContent();
-        // }
+            _service.Device.UpdateDevice(id, Device, trackChanges: true);
+            return NoContent();
+        }
 
         // /// <summary>
         // /// Patch Operations
