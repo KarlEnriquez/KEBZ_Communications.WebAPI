@@ -73,14 +73,14 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
-        // public void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges)
-        // {
-        //     var UserEntity = _repositoryManager.User.GetUser(id, trackChanges);
-        //     if (UserEntity == null)
-        //         throw new UserNotFoundException(id);
+        public void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges)
+        {
+            var UserEntity = _repositoryManager.User.GetUser(id, trackChanges);
+            if (UserEntity == null)
+                throw new UserNotFoundException(id);
 
-        //     _mapper.Map(UserForUpdate, UserEntity);
-        //     _repositoryManager.Save();
-        // }
+            _mapper.Map(UserForUpdate, UserEntity);
+            _repositoryManager.Save();
+        }
     }
 }

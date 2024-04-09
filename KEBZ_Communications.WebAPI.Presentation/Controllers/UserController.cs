@@ -54,18 +54,18 @@ namespace KEBZ_Communications.Presentation.Controllers
             return NoContent();
         }
 
-        // [HttpPut("{id:guid}")]
-        // public  IActionResult UpdateUser(Guid id, [FromBody] UserForUpdateDto User)
-        // {
-        //     if (User == null)
-        //         return BadRequest("UserForUpdateDto object is null");
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateUser(Guid id, [FromBody] UserForUpdateDto User)
+        {
+            if (User == null)
+                return BadRequest("UserForUpdateDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.User.UpdateUser(id, User, trackChanges: true);
-        //     return NoContent();
-        // }
+            _service.User.UpdateUser(id, User, trackChanges: true);
+            return NoContent();
+        }
 
         // /// <summary>
         // /// Patch Operations

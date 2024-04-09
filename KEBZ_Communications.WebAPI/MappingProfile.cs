@@ -13,6 +13,7 @@ namespace KEBZ_Communications.WebAPI
             CreateMap<Plan, PlanDto>();
             CreateMap<UserPlan, UserPlanDto>();
             CreateMap<UserForCreationDto, User>();
+            CreateMap<UserForUpdateDto, User>();//TODO: Add reverse mapping?
 
         }
     }
