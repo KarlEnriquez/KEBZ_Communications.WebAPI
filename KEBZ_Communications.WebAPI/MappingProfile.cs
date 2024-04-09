@@ -12,6 +12,7 @@ namespace KEBZ_Communications.WebAPI
             CreateMap<Device, DeviceDto>();
             CreateMap<Plan, PlanDto>();
             CreateMap<UserPlan, UserPlanDto>();
+            CreateMap<UserForCreationDto, User>();
 
         }
     }

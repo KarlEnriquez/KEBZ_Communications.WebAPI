@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -33,19 +34,18 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult CreateUser([FromBody] UserForCreationDto User)
+        {
+            if (User == null)
+                return BadRequest("UserForCreationDto object is null");
 
-        // [HttpPost]
-        // public  IActionResult CreateUser([FromBody] UserForCreationDto User)
-        // {
-        //     if (User == null)
-        //         return BadRequest("UserForCreationDto object is null");
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-
-        //     var createdUser =  _service.User.CreateUser(User);
-        //     return CreatedAtRoute("UserById", new { id = createdUser.Id }, createdUser);
-        // }
+            var createdUser = _service.User.CreateUser(User);
+            return CreatedAtRoute("UserById", new { id = createdUser.UserId }, createdUser);
+        }
 
         // [HttpDelete("{id:guid}")]
         // public  IActionResult DeleteUser(Guid id)

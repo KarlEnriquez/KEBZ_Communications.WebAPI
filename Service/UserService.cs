@@ -19,14 +19,14 @@ namespace Service
             _logger = logger;
             _mapper = mapper;
         }
-        // public UserDto CreateUser(UserForCreationDto User)
-        // {
-        //     var UserEntity = _mapper.Map<User>(User);
-        //     _repositoryManager.User.CreateUser(UserEntity);
-        //     _repositoryManager.Save();
-        //     var UserToReturn = _mapper.Map<UserDto>(UserEntity);
-        //     return UserToReturn;
-        // }
+        public UserDto CreateUser(UserForCreationDto User)
+        {
+            var UserEntity = _mapper.Map<User>(User);
+            _repositoryManager.User.CreateUser(UserEntity);
+            _repositoryManager.Save();
+            var UserToReturn = _mapper.Map<UserDto>(UserEntity);
+            return UserToReturn;
+        }
 
         // public void DeleteUser(Guid UserId, bool trackChanges)
         // {
