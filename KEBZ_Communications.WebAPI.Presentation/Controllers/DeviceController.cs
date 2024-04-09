@@ -18,21 +18,21 @@ namespace KEBZ_Communications.Presentation.Controllers
         public DeviceController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        // [HttpGet]
-        // public IActionResult GetDevices()
-        // {
-        //     var Devices = _service.Device.GetAllDevices(trackChanges: false);
-        //     return  Ok(Devices);
-        // }
-   
-        // [HttpGet("{id:guid}", Name = "DeviceById")]
-        // public  IActionResult GetDevice(Guid id)
-        // {
-        //     var Device =  _service.Device.GetDevice(id, trackChanges: false);
-        //     return Ok(Device);
-            
-        // }
-        
+        [HttpGet]
+        public IActionResult GetDevices()
+        {
+            var Devices = _service.Device.GetAllDevices(trackChanges: false);
+            return Ok(Devices);
+        }
+
+        [HttpGet("{id:guid}", Name = "DeviceById")]
+        public IActionResult GetDevice(Guid id)
+        {
+            var Device = _service.Device.GetDevice(id, trackChanges: false);
+            return Ok(Device);
+
+        }
+
 
         // [HttpPost]
         // public  IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
@@ -42,7 +42,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         //     if (!ModelState.IsValid)
         //         return UnprocessableEntity(ModelState);
-            
+
         //     var createdDevice =  _service.Device.CreateDevice(Device);
         //     return CreatedAtRoute("DeviceById", new { id = createdDevice.Id }, createdDevice);
         // }

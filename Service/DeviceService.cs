@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -42,24 +44,23 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
+        public IEnumerable<DeviceDto> GetAllDevices(bool trackChanges)
+        {
+            var Devices = _repositoryManager.Device.GetAllDevices(trackChanges);
+            var DevicesDto = _mapper.Map<IEnumerable<DeviceDto>>(Devices);
+            return DevicesDto;
+        }
 
-        // public IEnumerable<DeviceDto> GetAllDevices(bool trackChanges)
-        // {
-        //     var Devices = _repositoryManager.Device.GetAllDevices(trackChanges);
-        //     var DevicesDto = _mapper.Map<IEnumerable<DeviceDto>>(Devices);
-        //     return DevicesDto;
-        // }
+        public DeviceDto GetDevice(Guid DeviceId, bool trackChanges)
+        {
+            var Device = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
+            if (Device == null)
+                throw new DeviceNotFoundException(DeviceId);
 
-        // public DeviceDto GetDevice(Guid DeviceId, bool trackChanges)
-        // {
-        //     var Device = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);
-        //     if (Device == null)
-        //         throw new DeviceNotFoundException(DeviceId);
+            var DeviceDto = _mapper.Map<DeviceDto>(Device);
 
-        //     var DeviceDto = _mapper.Map<DeviceDto>(Device);
-
-        //     return DeviceDto;
-        // }
+            return DeviceDto;
+        }
 
 
         // public (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges)
