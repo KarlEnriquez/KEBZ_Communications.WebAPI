@@ -28,15 +28,15 @@ namespace Service
             return UserToReturn;
         }
 
-        // public void DeleteUser(Guid UserId, bool trackChanges)
-        // {
-        //     var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (User == null)
-        //         throw new UserNotFoundException(UserId);
+        public void DeleteUser(Guid UserId, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (User == null)
+                throw new UserNotFoundException(UserId);
 
-        //     _repositoryManager.User.DeleteUser(User);
-        //     _repositoryManager.Save();
-        // }
+            _repositoryManager.User.DeleteUser(User);
+            _repositoryManager.Save();
+        }
 
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {

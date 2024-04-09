@@ -11,7 +11,7 @@ namespace Service.Contracts
     public interface IUserService
     {
         UserDto CreateUser(UserForCreationDto userDto);
-        //void DeleteUser(Guid userId, bool trackChanges);
+        void DeleteUser(Guid userId, bool trackChanges);
         IEnumerable<UserDto> GetAllUsers(bool trackChanges);
 
         UserDto GetUser(Guid id, bool trackChanges);

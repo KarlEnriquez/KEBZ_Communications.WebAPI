@@ -47,12 +47,12 @@ namespace KEBZ_Communications.Presentation.Controllers
             return CreatedAtRoute("UserById", new { id = createdUser.UserId }, createdUser);
         }
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeleteUser(Guid id)
-        // {
-        //      _service.User.DeleteUser(id, trackChanges: false);
-        //     return NoContent();
-        // }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteUser(Guid id)
+        {
+            _service.User.DeleteUser(id, trackChanges: false);
+            return NoContent();
+        }
 
         // [HttpPut("{id:guid}")]
         // public  IActionResult UpdateUser(Guid id, [FromBody] UserForUpdateDto User)
