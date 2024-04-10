@@ -63,21 +63,21 @@ namespace Service
         }
 
 
-        // public (PlanForUpdateDto PlanForUpdate, Plan PlanEntity) GetPlanForPatch(Guid PlanId, bool trackChanges)
-        // {
-        //     var PlanEntity = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
-        //     if (PlanEntity == null)
-        //         throw new PlanNotFoundException(PlanId);
+        public (PlanForUpdateDto PlanForUpdate, Plan PlanEntity) GetPlanForPatch(Guid PlanId, bool trackChanges)
+        {
+            var PlanEntity = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
+            if (PlanEntity == null)
+                throw new PlanNotFoundException(PlanId);
 
-        //     var PlanForUpdate = _mapper.Map<PlanForUpdateDto>(PlanEntity);
-        //     return (PlanForUpdate, PlanEntity);
-        // }
+            var PlanForUpdate = _mapper.Map<PlanForUpdateDto>(PlanEntity);
+            return (PlanForUpdate, PlanEntity);
+        }
 
-        // public void SaveChangesForPatch(PlanForUpdateDto PlanForUpdate, Plan PlanEntity)
-        // {
-        //     _mapper.Map(PlanForUpdate, PlanEntity);
-        //     _repositoryManager.Save();
-        // }
+        public void SaveChangesForPatch(PlanForUpdateDto PlanForUpdate, Plan PlanEntity)
+        {
+            _mapper.Map(PlanForUpdate, PlanEntity);
+            _repositoryManager.Save();
+        }
 
         public void UpdatePlan(Guid id, PlanForUpdateDto PlanForUpdate, bool trackChanges)
         {

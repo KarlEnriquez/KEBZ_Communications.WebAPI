@@ -16,6 +16,9 @@ namespace Service.Contracts
 
         PlanDto CreatePlan(PlanForCreationDto Plan);
 
+        (PlanForUpdateDto PlanForUpdate, Plan PlanEntity) GetPlanForPatch(Guid PlanId, bool trackChanges);
+        void SaveChangesForPatch(PlanForUpdateDto PlanForUpdate, Plan PlanEntity);
+
         void UpdatePlan(Guid id, PlanForUpdateDto PlanForUpdate, bool trackChanges);
 
         void DeletePlan(Guid PlanId, bool trackChanges);
