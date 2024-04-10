@@ -27,15 +27,6 @@ namespace Service
            _mapper = mapper;
         }
 
-        // public UserPlanDto CreateUserPlan(UserPlanForCreationDto UserPlan)
-        // {
-        //     var UserPlanEntity = _mapper.Map<UserPlan>(UserPlan);
-        //     _repositoryManager.UserPlan.CreateUserPlan(UserPlanEntity);
-        //     _repositoryManager.Save();
-        //     var UserPlanToReturn = _mapper.Map<UserPlanDto>(UserPlanEntity);
-        //     return UserPlanToReturn;
-        // }
-
         public void DeleteUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges)
         {
             var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserId, UserPlanId, trackChanges);
@@ -45,25 +36,6 @@ namespace Service
             _repositoryManager.UserPlan.DeleteUserPlan(UserPlan);
             _repositoryManager.Save();
         }
-
-
-        // public IEnumerable<UserPlanDto> GetAllUserPlans(bool trackChanges)
-        // {
-        //     var UserPlans = _repositoryManager.UserPlan.GetAllUserPlans(trackChanges);
-        //     var UserPlansDto = _mapper.Map<IEnumerable<UserPlanDto>>(UserPlans);
-        //     return UserPlansDto;
-        // }
-
-        //public UserPlanDto GetUserPlan(Guid UserPlanId, bool trackChanges)
-        //{
-        //    var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
-        //    if (UserPlan == null)
-        //        throw new UserPlanNotFoundException(UserPlanId);
-
-        //    var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
-
-        //    return UserPlanDto;
-        //}
 
         public UserPlanDto CreateUserPlan(UserPlanForCreationDto userPlan)
         {
@@ -75,12 +47,6 @@ namespace Service
             if (course == null)
                 throw new PlanNotFoundException(userPlan.PlanId);
 
-            //var userPlanEntity = _mapper.Map<UserPlan>(userPlan);
-            //userPlanEntity.User = student;
-            //userPlanEntity.Plan = course;
-            //_repositoryManager.UserPlan.CreateUserPlan(userPlanEntity);
-            //_repositoryManager.Save();
-
             var userPlanEntity = _mapper.Map<UserPlan>(userPlan); // Mapping from DTO to Entity directly without assigning User or Plan
             _repositoryManager.UserPlan.CreateUserPlan(userPlanEntity);  // Directly create UserPlan without setting User and Plan entities
             _repositoryManager.Save();
@@ -88,8 +54,6 @@ namespace Service
             return userPlanToReturn;
         }
 
-
-        //TEMPORARY because UserPlan is a Intersect Table
         public IEnumerable<UserPlanDto> GetAllUserPlans(Guid UserId, bool trackChanges)
         {
             var UserPlans = _repositoryManager.UserPlan.GetAllUserPlans(UserId, trackChanges);

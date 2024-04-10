@@ -22,13 +22,9 @@ namespace Repository
         {
         }
 
-        //public IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges) =>
-        //    FindAll(trackChanges).OrderBy(s => s.UserId).ToList();
         public IEnumerable<UserPlan> GetAllUserPlans(Guid UserId, bool trackChanges) =>
             FindByCondition(e => e.UserId.Equals(UserId), trackChanges).ToList();
 
-        //public UserPlan GetUserPlan(Guid userId, bool trackChanges) =>
-        //    FindByCondition(s => s.UserId.Equals(userId), trackChanges).SingleOrDefault(); //TODO : remove this
         public UserPlan GetUserPlan(Guid UserId, Guid id, bool trackChanges) =>
             FindByCondition(e => e.UserId.Equals(UserId) && e.UserPlanId.Equals(id), trackChanges).SingleOrDefault();
 

@@ -10,8 +10,7 @@ using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
-    //[Route("api/[controller]")] //TODO: Delete this later
-    [Route("api/user/{UserId:guid}/userplan")] // temporary route, because this is intersect table
+    [Route("api/user/{UserId:guid}/userplan")] 
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     public class UserPlanController : ControllerBase
     {

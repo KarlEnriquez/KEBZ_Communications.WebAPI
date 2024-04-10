@@ -27772,3 +27772,330 @@
 2024-04-10 17:41:43.8687 Trace FileTarget(Name=logfile) has 2 layouts
 2024-04-10 17:41:43.8687 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
 2024-04-10 17:41:43.8687 Info Configuration initialized.
+2024-04-10 17:47:25.4596 Debug Message Template Auto Format enabled
+2024-04-10 17:47:25.6246 Info Loading assembly name: NLog.Web.AspNetCore
+2024-04-10 17:47:25.6505 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.8.1035. Product version: 5.3.8+0c5db2371c65c25905734b0335fd0c593ee61ad6. GlobalAssemblyCache: False
+2024-04-10 17:47:25.6505 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2024-04-10 17:47:25.6874 Debug Loading assembly name: NLog.Web.AspNetCore succeeded!
+2024-04-10 17:47:25.7599 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.7599 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:25.7599 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.7599 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:25.7787 Trace Wrapping NLog.LayoutRenderers.EventPropertiesLayoutRenderer with NLog.LayoutRenderers.Wrappers.WhenEmptyLayoutRendererWrapper
+2024-04-10 17:47:25.7787 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.7787 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.7787 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.7787 Trace Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:25.7787 Trace  Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:25.7928 Trace  Scanning SimpleLayout '0'
+2024-04-10 17:47:25.7928 Trace   Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.7928 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.7928 Trace  Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:25.7928 Trace  Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.7928 Trace   Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.8066 Trace   Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.8066 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8066 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:25.8066 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8066 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:25.8066 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8066 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:25.8235 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8235 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:25.8235 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:25.8235 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2024-04-10 17:47:25.8235 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-04-10 17:47:25.8235 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8235 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:25.8235 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8235 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:25.8235 Trace Wrapping NLog.LayoutRenderers.EventPropertiesLayoutRenderer with NLog.LayoutRenderers.Wrappers.WhenEmptyLayoutRendererWrapper
+2024-04-10 17:47:25.8235 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8235 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.8235 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8235 Trace Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:25.8374 Trace  Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:25.8374 Trace  Scanning SimpleLayout '0'
+2024-04-10 17:47:25.8374 Trace   Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.8374 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.8374 Trace  Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:25.8374 Trace  Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.8374 Trace   Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.8374 Trace   Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.8374 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8374 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:25.8374 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8374 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:25.8374 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8374 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:25.8374 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8374 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:25.8374 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:25.8532 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8532 Trace Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-04-10 17:47:25.8532 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8532 Trace Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-04-10 17:47:25.8532 Debug Adding target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-04-10 17:47:25.8532 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-04-10 17:47:25.8532 Debug Object reflection needed to resolve type: NLog.Extensions.Logging.MicrosoftConsoleLayoutRenderer, NLog.Extensions.Logging
+2024-04-10 17:47:25.8532 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:25.8532 Trace Scanning MicrosoftConsoleLayoutRenderer 'Layout Renderer: ${MicrosoftConsoleLayout}'
+2024-04-10 17:47:25.8532 Debug Object reflection needed to configure instance of type: NLog.Extensions.Logging.MicrosoftConsoleLayoutRenderer
+2024-04-10 17:47:25.8532 Debug Adding target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2024-04-10 17:47:25.8532 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2024-04-10 17:47:25.8684 Trace ParseRulesElement
+2024-04-10 17:47:25.8684 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-04-10 17:47:25.9009 Debug Start watching file-filter 'nlog.config' in directory: C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI
+2024-04-10 17:47:25.9009 Debug --- NLog configuration dump ---
+2024-04-10 17:47:25.9009 Debug Targets:
+2024-04-10 17:47:25.9009 Debug FileTarget(Name=logfile)
+2024-04-10 17:47:25.9009 Debug FileTarget(Name=ownFile-web)
+2024-04-10 17:47:25.9009 Debug ConsoleTarget(Name=lifetimeConsole)
+2024-04-10 17:47:25.9009 Debug Rules:
+2024-04-10 17:47:25.9009 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2024-04-10 17:47:25.9009 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ] final: True
+2024-04-10 17:47:25.9009 Debug logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-04-10 17:47:25.9009 Debug logNamePattern: (System.Net.Http.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-04-10 17:47:25.9009 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]
+2024-04-10 17:47:25.9150 Debug --- End of NLog configuration dump ---
+2024-04-10 17:47:25.9150 Trace FindReachableObject<System.Object>:
+2024-04-10 17:47:25.9150 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2024-04-10 17:47:25.9150 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-04-10 17:47:25.9150 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-04-10 17:47:25.9150 Trace   Scanning Property FileName 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-04-10 17:47:25.9150 Trace   Scanning SimpleLayout 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\${shortdate}_logfile.txt'
+2024-04-10 17:47:25.9150 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9150 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9150 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:25.9150 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9358 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}' NLog.Layouts.Layout
+2024-04-10 17:47:25.9358 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}'
+2024-04-10 17:47:25.9358 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9358 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:25.9358 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9358 Trace    Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:25.9358 Trace     Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:25.9358 Trace     Scanning SimpleLayout '0'
+2024-04-10 17:47:25.9358 Trace      Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9358 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9358 Trace     Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:25.9358 Trace     Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.9481 Trace      Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9481 Trace      Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.9481 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9481 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:25.9481 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9481 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:25.9481 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9481 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:25.9481 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9481 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:25.9481 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:25.9481 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-04-10 17:47:25.9481 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-04-10 17:47:25.9622 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ] final: True'
+2024-04-10 17:47:25.9622 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-04-10 17:47:25.9622 Trace  Scanning ConsoleTarget 'ConsoleTarget(Name=lifetimeConsole)'
+2024-04-10 17:47:25.9622 Trace   Scanning Property Layout '${MicrosoftConsoleLayout}' NLog.Layouts.Layout
+2024-04-10 17:47:25.9622 Trace   Scanning SimpleLayout '${MicrosoftConsoleLayout}'
+2024-04-10 17:47:25.9622 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9622 Trace    Scanning MicrosoftConsoleLayoutRenderer 'Layout Renderer: ${MicrosoftConsoleLayout}'
+2024-04-10 17:47:25.9622 Trace  Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-04-10 17:47:25.9622 Trace   Scanning Property FileName 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\web-${shortdate}.log' NLog.Layouts.Layout
+2024-04-10 17:47:25.9622 Trace   Scanning SimpleLayout 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\web-${shortdate}.log'
+2024-04-10 17:47:25.9622 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9622 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9622 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-04-10 17:47:25.9779 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-04-10 17:47:25.9779 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9779 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace    Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:25.9779 Trace     Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:25.9779 Trace     Scanning SimpleLayout '0'
+2024-04-10 17:47:25.9779 Trace      Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9779 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace     Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:25.9779 Trace     Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.9779 Trace      Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:25.9779 Trace      Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9779 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:25.9779 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9938 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:25.9938 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:25.9938 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9938 Trace    Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-04-10 17:47:25.9938 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:25.9938 Trace    Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-04-10 17:47:25.9938 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-04-10 17:47:25.9938 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-04-10 17:47:25.9938 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-04-10 17:47:25.9938 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-04-10 17:47:25.9938 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-04-10 17:47:25.9938 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-04-10 17:47:25.9938 Trace Scanning LoggingRule 'logNamePattern: (System.Net.Http.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-04-10 17:47:25.9938 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-04-10 17:47:25.9938 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-04-10 17:47:25.9938 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-04-10 17:47:25.9938 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]'
+2024-04-10 17:47:25.9938 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-04-10 17:47:25.9938 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-04-10 17:47:25.9938 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-04-10 17:47:26.0100 Info Validating config: TargetNames=logfile, lifetimeConsole, ownFile-web, ConfigItems=54, FilePath=C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\nlog.config
+2024-04-10 17:47:26.0100 Debug Unused target checking is started... Rule Count: 5, Target Count: 3
+2024-04-10 17:47:26.0263 Debug Unused target checking is completed. Total Rule Count: 5, Total Target Count: 3, Unused Target Count: 0
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${aspnet-mvc-action}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${aspnet-request-url}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${exception}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${message}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${loggername}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${level}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0263 Trace Initializing Layout Renderer: ${event-properties}
+2024-04-10 17:47:26.0263 Trace Initializing SimpleLayout=Layout Renderer: ${event-properties}
+2024-04-10 17:47:26.0431 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.0431 Trace Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.0431 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0431 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.0431 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0431 Trace Initializing 0
+2024-04-10 17:47:26.0431 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.0431 Trace Scanning SimpleLayout '0'
+2024-04-10 17:47:26.0431 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0431 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0431 Trace Initializing Layout Renderer: ${whenEmpty}
+2024-04-10 17:47:26.0564 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0564 Trace Initializing Layout Renderer: ${longdate}
+2024-04-10 17:47:26.0564 Trace Initializing ${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}
+2024-04-10 17:47:26.0564 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.0564 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-04-10 17:47:26.0564 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0564 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:26.0564 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0564 Trace  Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:26.0564 Trace   Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:26.0564 Trace   Scanning SimpleLayout '0'
+2024-04-10 17:47:26.0564 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0564 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0564 Trace   Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:26.0564 Trace   Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.0564 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0564 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.0564 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:26.0725 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:26.0725 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:26.0725 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:26.0725 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:26.0725 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-04-10 17:47:26.0725 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0725 Trace  Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-04-10 17:47:26.0725 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0725 Trace Initializing Layout Renderer: ${shortdate}
+2024-04-10 17:47:26.0725 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.0725 Trace Initializing C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\web-${shortdate}.log
+2024-04-10 17:47:26.0725 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.0725 Trace Scanning SimpleLayout 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\web-${shortdate}.log'
+2024-04-10 17:47:26.0875 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.0875 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0875 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:26.0875 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.0875 Trace Initializing FileTarget(Name=ownFile-web)
+2024-04-10 17:47:26.0875 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-04-10 17:47:26.0875 Trace Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-04-10 17:47:26.0875 Trace  Scanning Property FileName 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\web-${shortdate}.log' NLog.Layouts.Layout
+2024-04-10 17:47:26.0875 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-04-10 17:47:26.0875 Trace FileTarget(Name=ownFile-web) has 2 layouts
+2024-04-10 17:47:26.0875 Trace FileTarget(Name=ownFile-web): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-04-10 17:47:26.0875 Trace Initializing Layout Renderer: ${MicrosoftConsoleLayout}
+2024-04-10 17:47:26.0875 Trace Initializing ${MicrosoftConsoleLayout}
+2024-04-10 17:47:26.0875 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.1024 Trace Scanning SimpleLayout '${MicrosoftConsoleLayout}'
+2024-04-10 17:47:26.1024 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1024 Trace  Scanning MicrosoftConsoleLayoutRenderer 'Layout Renderer: ${MicrosoftConsoleLayout}'
+2024-04-10 17:47:26.1024 Trace Initializing ConsoleTarget(Name=lifetimeConsole)
+2024-04-10 17:47:26.1024 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-04-10 17:47:26.1024 Trace Scanning ConsoleTarget 'ConsoleTarget(Name=lifetimeConsole)'
+2024-04-10 17:47:26.1024 Trace  Scanning Property Layout '${MicrosoftConsoleLayout}' NLog.Layouts.Layout
+2024-04-10 17:47:26.1024 Trace ConsoleTarget(Name=lifetimeConsole) has 1 layouts
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${exception}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${message}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${loggername}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${level}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1024 Trace Initializing Layout Renderer: ${event-properties}
+2024-04-10 17:47:26.1024 Trace Initializing SimpleLayout=Layout Renderer: ${event-properties}
+2024-04-10 17:47:26.1024 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.1024 Trace Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.1024 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1024 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.1192 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1192 Trace Initializing 0
+2024-04-10 17:47:26.1192 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.1192 Trace Scanning SimpleLayout '0'
+2024-04-10 17:47:26.1192 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1192 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1192 Trace Initializing Layout Renderer: ${whenEmpty}
+2024-04-10 17:47:26.1192 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1192 Trace Initializing Layout Renderer: ${longdate}
+2024-04-10 17:47:26.1192 Trace Initializing ${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}
+2024-04-10 17:47:26.1192 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.1192 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}'
+2024-04-10 17:47:26.1192 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1192 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-04-10 17:47:26.1192 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1192 Trace  Scanning WhenEmptyLayoutRendererWrapper 'Layout Renderer: ${whenEmpty}'
+2024-04-10 17:47:26.1192 Trace   Scanning Property WhenEmpty '0' NLog.Layouts.Layout
+2024-04-10 17:47:26.1192 Trace   Scanning SimpleLayout '0'
+2024-04-10 17:47:26.1192 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1192 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1349 Trace   Scanning Property Inner 'SimpleLayout=Layout Renderer: ${event-properties}' NLog.Layouts.Layout
+2024-04-10 17:47:26.1349 Trace   Scanning SimpleLayout 'SimpleLayout=Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.1349 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1349 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-04-10 17:47:26.1349 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1349 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-04-10 17:47:26.1349 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1349 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-04-10 17:47:26.1349 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1349 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-04-10 17:47:26.1349 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1349 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-04-10 17:47:26.1349 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-04-10 17:47:26.1349 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1349 Trace Initializing Layout Renderer: ${shortdate}
+2024-04-10 17:47:26.1349 Trace Initializing Layout Renderer: ${literal}
+2024-04-10 17:47:26.1349 Trace Initializing C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\${shortdate}_logfile.txt
+2024-04-10 17:47:26.1349 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-04-10 17:47:26.1495 Trace Scanning SimpleLayout 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\${shortdate}_logfile.txt'
+2024-04-10 17:47:26.1495 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-04-10 17:47:26.1495 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1495 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-04-10 17:47:26.1495 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-04-10 17:47:26.1495 Trace Initializing FileTarget(Name=logfile)
+2024-04-10 17:47:26.1495 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-04-10 17:47:26.1495 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-04-10 17:47:26.1495 Trace  Scanning Property FileName 'C:\Users\Karl Enriquez\source\repos\KEBZ_Communications.WebAPI\KEBZ_Communications.WebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-04-10 17:47:26.1495 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId:whenEmpty=0}|${level:uppercase=true}|${logger}|${message} ${exception:format=tostring}' NLog.Layouts.Layout
+2024-04-10 17:47:26.1495 Trace FileTarget(Name=logfile) has 2 layouts
+2024-04-10 17:47:26.1495 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-04-10 17:47:26.1495 Info Configuration initialized.
