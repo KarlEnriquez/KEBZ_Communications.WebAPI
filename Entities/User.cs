@@ -2,10 +2,11 @@
  * Filename: User.cs
  * Description: This file contains the definition of the User entity class.
  */
+using Microsoft.AspNetCore.Identity;
 
 namespace Entities
 {
-    public class User
+    public class User: IdentityUser
     {
         public Guid UserId {  get; set; }
         public string? Username {  get; set; }

@@ -9,6 +9,7 @@ namespace KEBZ_Communications.WebAPI
         public MappingProfile()
         {
             CreateMap<User, UserDto>();
+            CreateMap<UserForRegistrationDto, User>();
 
         }
     }

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Repository;
 using Service;
 using Service.Contracts;
+using Microsoft.AspNetCore.Identity;
+using Entities;
+
 
 namespace KEBZ_Communications.WebAPI.Extensions
 {
@@ -30,7 +33,8 @@ namespace KEBZ_Communications.WebAPI.Extensions
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
-        public static void ConfigureRepositoryManager(this IServiceCollection services) { 
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         }
         public static void ConfigureServiceManager(this IServiceCollection services)
@@ -43,6 +47,21 @@ namespace KEBZ_Communications.WebAPI.Extensions
             services.AddDbContext<RepositoryContext>(opts =>
                 opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var builder = services.AddIdentity<User, IdentityRole>(o =>
+            {
+                o.Password.RequireDigit = true;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 10;
+                o.User.RequireUniqueEmail = true;
+            })
+                .AddEntityFrameworkStores<RepositoryContext>()
+                .AddDefaultTokenProviders();
+        }
+
     }
 
 }
