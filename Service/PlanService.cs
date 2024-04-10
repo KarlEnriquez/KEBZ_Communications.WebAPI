@@ -24,14 +24,14 @@ namespace Service
             _logger = logger;
             _mapper = mapper;
         }
-        // public PlanDto CreatePlan(PlanForCreationDto Plan)
-        // {
-        //     var PlanEntity = _mapper.Map<Plan>(Plan);
-        //     _repositoryManager.Plan.CreatePlan(PlanEntity);
-        //     _repositoryManager.Save();
-        //     var PlanToReturn = _mapper.Map<PlanDto>(PlanEntity);
-        //     return PlanToReturn;
-        // }
+        public PlanDto CreatePlan(PlanForCreationDto Plan)
+        {
+            var PlanEntity = _mapper.Map<Plan>(Plan);
+            _repositoryManager.Plan.CreatePlan(PlanEntity);
+            _repositoryManager.Save();
+            var PlanToReturn = _mapper.Map<PlanDto>(PlanEntity);
+            return PlanToReturn;
+        }
 
         // public void DeletePlan(Guid PlanId, bool trackChanges)
         // {

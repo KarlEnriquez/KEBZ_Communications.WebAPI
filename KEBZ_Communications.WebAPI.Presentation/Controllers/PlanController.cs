@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -32,20 +33,20 @@ namespace KEBZ_Communications.Presentation.Controllers
              return Ok(Plan);
             
          }
-        
 
-        // [HttpPost]
-        // public  IActionResult CreatePlan([FromBody] PlanForCreationDto Plan)
-        // {
-        //     if (Plan == null)
-        //         return BadRequest("PlanForCreationDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-            
-        //     var createdPlan =  _service.Plan.CreatePlan(Plan);
-        //     return CreatedAtRoute("PlanById", new { id = createdPlan.Id }, createdPlan);
-        // }
+        [HttpPost]
+        public IActionResult CreatePlan([FromBody] PlanForCreationDto Plan)
+        {
+            if (Plan == null)
+                return BadRequest("PlanForCreationDto object is null");
+
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            var createdPlan = _service.Plan.CreatePlan(Plan);
+            return CreatedAtRoute("PlanById", new { id = createdPlan.PlanId }, createdPlan);
+        }
 
         // [HttpDelete("{id:guid}")]
         // public  IActionResult DeletePlan(Guid id)

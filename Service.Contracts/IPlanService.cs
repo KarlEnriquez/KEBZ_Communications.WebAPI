@@ -14,7 +14,7 @@ namespace Service.Contracts
 
         PlanDto GetPlan(Guid id, bool trackChanges);
 
-        //void CreatePlan(Plan plan);
+        PlanDto CreatePlan(PlanForCreationDto Plan);
 
         //void UpdatePlan(Plan plan);
 
