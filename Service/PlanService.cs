@@ -79,14 +79,14 @@ namespace Service
         //     _repositoryManager.Save();
         // }
 
-        // public void UpdatePlan(Guid id, PlanForUpdateDto PlanForUpdate, bool trackChanges)
-        // {
-        //     var PlanEntity = _repositoryManager.Plan.GetPlan(id, trackChanges);
-        //     if (PlanEntity == null)
-        //         throw new PlanNotFoundException(id);
+        public void UpdatePlan(Guid id, PlanForUpdateDto PlanForUpdate, bool trackChanges)
+        {
+            var PlanEntity = _repositoryManager.Plan.GetPlan(id, trackChanges);
+            if (PlanEntity == null)
+                throw new PlanNotFoundException(id);
 
-        //     _mapper.Map(PlanForUpdate, PlanEntity);
-        //     _repositoryManager.Save();
-        // }
+            _mapper.Map(PlanForUpdate, PlanEntity);
+            _repositoryManager.Save();
+        }
     }
 }

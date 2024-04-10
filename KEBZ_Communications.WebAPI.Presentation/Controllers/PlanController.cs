@@ -55,18 +55,18 @@ namespace KEBZ_Communications.Presentation.Controllers
             return NoContent();
         }
 
-        // [HttpPut("{id:guid}")]
-        // public  IActionResult UpdatePlan(Guid id, [FromBody] PlanForUpdateDto Plan)
-        // {
-        //     if (Plan == null)
-        //         return BadRequest("PlanForUpdateDto object is null");
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdatePlan(Guid id, [FromBody] PlanForUpdateDto Plan)
+        {
+            if (Plan == null)
+                return BadRequest("PlanForUpdateDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.Plan.UpdatePlan(id, Plan, trackChanges: true);
-        //     return NoContent();
-        // }
+            _service.Plan.UpdatePlan(id, Plan, trackChanges: true);
+            return NoContent();
+        }
 
         // /// <summary>
         // /// Patch Operations
