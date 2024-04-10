@@ -18,6 +18,6 @@ namespace Service.Contracts
 
         //void UpdatePlan(Plan plan);
 
-        //void DeletePlan(Plan plan);
+        void DeletePlan(Guid PlanId, bool trackChanges);
     }
 }

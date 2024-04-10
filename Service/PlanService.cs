@@ -33,15 +33,15 @@ namespace Service
             return PlanToReturn;
         }
 
-        // public void DeletePlan(Guid PlanId, bool trackChanges)
-        // {
-        //     var Plan = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
-        //     if (Plan == null)
-        //         throw new PlanNotFoundException(PlanId);
+        public void DeletePlan(Guid PlanId, bool trackChanges)
+        {
+            var Plan = _repositoryManager.Plan.GetPlan(PlanId, trackChanges);
+            if (Plan == null)
+                throw new PlanNotFoundException(PlanId);
 
-        //     _repositoryManager.Plan.DeletePlan(Plan);
-        //     _repositoryManager.Save();
-        // }
+            _repositoryManager.Plan.DeletePlan(Plan);
+            _repositoryManager.Save();
+        }
 
 
         public IEnumerable<PlanDto> GetAllPlans(bool trackChanges)

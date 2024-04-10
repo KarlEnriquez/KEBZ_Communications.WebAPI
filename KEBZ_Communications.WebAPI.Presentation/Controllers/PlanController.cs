@@ -48,12 +48,12 @@ namespace KEBZ_Communications.Presentation.Controllers
             return CreatedAtRoute("PlanById", new { id = createdPlan.PlanId }, createdPlan);
         }
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeletePlan(Guid id)
-        // {
-        //      _service.Plan.DeletePlan(id, trackChanges: false);
-        //     return NoContent();
-        // }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeletePlan(Guid id)
+        {
+            _service.Plan.DeletePlan(id, trackChanges: false);
+            return NoContent();
+        }
 
         // [HttpPut("{id:guid}")]
         // public  IActionResult UpdatePlan(Guid id, [FromBody] PlanForUpdateDto Plan)
