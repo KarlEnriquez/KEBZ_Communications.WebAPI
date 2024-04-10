@@ -14,5 +14,7 @@ namespace Service.Contracts
 
         UserPlanDto GetUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges);
 
+        UserPlanDto CreateUserPlan(UserPlanForCreationDto UserPlan);
+
     }
 }

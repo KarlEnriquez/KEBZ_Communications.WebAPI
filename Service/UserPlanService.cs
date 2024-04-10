@@ -65,6 +65,29 @@ namespace Service
         //    return UserPlanDto;
         //}
 
+        public UserPlanDto CreateUserPlan(UserPlanForCreationDto userPlan)
+        {
+            var student = _repositoryManager.User.GetUser(userPlan.UserId, false);
+            if (student == null)
+                throw new UserNotFoundException(userPlan.UserId);
+
+            var course = _repositoryManager.Plan.GetPlan(userPlan.PlanId, false);
+            if (course == null)
+                throw new PlanNotFoundException(userPlan.PlanId);
+
+            //var userPlanEntity = _mapper.Map<UserPlan>(userPlan);
+            //userPlanEntity.User = student;
+            //userPlanEntity.Plan = course;
+            //_repositoryManager.UserPlan.CreateUserPlan(userPlanEntity);
+            //_repositoryManager.Save();
+
+            var userPlanEntity = _mapper.Map<UserPlan>(userPlan); // Mapping from DTO to Entity directly without assigning User or Plan
+            _repositoryManager.UserPlan.CreateUserPlan(userPlanEntity);  // Directly create UserPlan without setting User and Plan entities
+            _repositoryManager.Save();
+            var userPlanToReturn = _mapper.Map<UserPlanDto>(userPlanEntity);
+            return userPlanToReturn;
+        }
+
 
         //TEMPORARY because UserPlan is a Intersect Table
         public IEnumerable<UserPlanDto> GetAllUserPlans(Guid UserId, bool trackChanges)

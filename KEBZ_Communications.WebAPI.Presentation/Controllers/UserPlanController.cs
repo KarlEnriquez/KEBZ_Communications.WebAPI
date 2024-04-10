@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -17,22 +18,6 @@ namespace KEBZ_Communications.Presentation.Controllers
         private readonly IServiceManager _service;
 
         public UserPlanController(IServiceManager serviceManager) => _service = serviceManager;
-
-
-        //[HttpGet]
-        //public IActionResult GetUserPlans()
-        //{
-        //    var UserPlans = _service.UserPlan.GetAllUserPlans(trackChanges: false);
-        //    return Ok(UserPlans);
-        //}
-
-        //[HttpGet("{id:guid}", Name = "UserPlanById")]
-        //public IActionResult GetUserPlan(Guid id)
-        //{
-        //    var UserPlan = _service.UserPlan.GetUserPlan(id, trackChanges: false);
-        //    return Ok(UserPlan);
-
-        //}
 
         [HttpGet]
         public IActionResult GetAllUserPlans(Guid UserId)
@@ -49,19 +34,17 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult CreateUserPlan(Guid UserId, [FromBody] UserPlanForCreationDto userPlan)
+        {
+            if (userPlan == null)
+                return BadRequest("UserPlanForCreationDto object is null");
 
-        // [HttpPost]
-        // public  IActionResult CreateUserPlan([FromBody] UserPlanForCreationDto UserPlan)
-        // {
-        //     if (UserPlan == null)
-        //         return BadRequest("UserPlanForCreationDto object is null");
+            userPlan.UserId = UserId; // Ensuring the UserId is set correctly in the DTO
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-
-        //     var createdUserPlan =  _service.UserPlan.CreateUserPlan(UserPlan);
-        //     return CreatedAtRoute("UserPlanById", new { id = createdUserPlan.Id }, createdUserPlan);
-        // }
+            var createdUserPlan = _service.UserPlan.CreateUserPlan(userPlan);
+            return CreatedAtRoute("UserPlanById", new { UserId = UserId, id = createdUserPlan.UserPlanId }, createdUserPlan);
+        }
 
         // [HttpDelete("{id:guid}")]
         // public  IActionResult DeleteUserPlan(Guid id)
