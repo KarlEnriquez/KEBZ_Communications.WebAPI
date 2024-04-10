@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObjects;
 
-namespace ContosoUniversity.Presentation.Controllers
+namespace KEBZ_Communications.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -32,6 +32,17 @@ namespace ContosoUniversity.Presentation.Controllers
                 return BadRequest(ModelState);
             }
             return Created();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto userForAuthentication)
+        {
+            if (!await _service.Authentication.ValidateUser(userForAuthentication))
+            {
+                return Unauthorized();
+            }
+            
+            return Ok(new { Token = await _service.Authentication.CreateToken() });
         }
     }
 }
