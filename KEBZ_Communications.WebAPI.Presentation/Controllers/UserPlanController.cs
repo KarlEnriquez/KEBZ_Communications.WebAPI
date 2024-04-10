@@ -46,12 +46,12 @@ namespace KEBZ_Communications.Presentation.Controllers
             return CreatedAtRoute("UserPlanById", new { UserId = UserId, id = createdUserPlan.UserPlanId }, createdUserPlan);
         }
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeleteUserPlan(Guid id)
-        // {
-        //      _service.UserPlan.DeleteUserPlan(id, trackChanges: false);
-        //     return NoContent();
-        // }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteUserPlan(Guid UserId, Guid id)
+        {
+            _service.UserPlan.DeleteUserPlan(UserId, id, trackChanges: false);
+            return NoContent();
+        }
 
         // [HttpPut("{id:guid}")]
         // public  IActionResult UpdateUserPlan(Guid id, [FromBody] UserPlanForUpdateDto UserPlan)

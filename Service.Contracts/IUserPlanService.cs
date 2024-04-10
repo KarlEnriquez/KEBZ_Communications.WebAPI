@@ -16,5 +16,7 @@ namespace Service.Contracts
 
         UserPlanDto CreateUserPlan(UserPlanForCreationDto UserPlan);
 
+        void DeleteUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges);
+
     }
 }

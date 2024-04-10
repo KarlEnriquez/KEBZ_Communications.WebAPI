@@ -36,15 +36,15 @@ namespace Service
         //     return UserPlanToReturn;
         // }
 
-        // public void DeleteUserPlan(Guid UserPlanId, bool trackChanges)
-        // {
-        //     var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
-        //     if (UserPlan == null)
-        //         throw new UserPlanNotFoundException(UserPlanId);
+        public void DeleteUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges)
+        {
+            var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserId, UserPlanId, trackChanges);
+            if (UserPlan == null)
+                throw new UserPlanNotFoundException(UserId, UserPlanId);
 
-        //     _repositoryManager.UserPlan.DeleteUserPlan(UserPlan);
-        //     _repositoryManager.Save();
-        // }
+            _repositoryManager.UserPlan.DeleteUserPlan(UserPlan);
+            _repositoryManager.Save();
+        }
 
 
         // public IEnumerable<UserPlanDto> GetAllUserPlans(bool trackChanges)
