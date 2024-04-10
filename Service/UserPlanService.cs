@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -52,16 +54,39 @@ namespace Service
         //     return UserPlansDto;
         // }
 
-        // public UserPlanDto GetUserPlan(Guid UserPlanId, bool trackChanges)
-        // {
-        //     var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
-        //     if (UserPlan == null)
-        //         throw new UserPlanNotFoundException(UserPlanId);
+        //public UserPlanDto GetUserPlan(Guid UserPlanId, bool trackChanges)
+        //{
+        //    var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
+        //    if (UserPlan == null)
+        //        throw new UserPlanNotFoundException(UserPlanId);
 
-        //     var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
+        //    var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
 
-        //     return UserPlanDto;
-        // }
+        //    return UserPlanDto;
+        //}
+
+
+        //TEMPORARY because UserPlan is a Intersect Table
+        public IEnumerable<UserPlanDto> GetAllUserPlans(Guid UserId, bool trackChanges)
+        {
+            var UserPlans = _repositoryManager.UserPlan.GetAllUserPlans(UserId, trackChanges);
+            var UserPlansDto = _mapper.Map<IEnumerable<UserPlanDto>>(UserPlans);
+            return UserPlansDto;
+        }
+
+        public UserPlanDto GetUserPlan(Guid UserId, Guid id, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (User == null)
+                throw new UserNotFoundException(UserId);
+
+            var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserId, id, trackChanges);
+            if (UserPlan == null)
+                throw new UserPlanNotFoundException(UserId, id);
+
+            var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
+            return UserPlanDto;
+        }
 
 
         // public (UserPlanForUpdateDto UserPlanForUpdate, UserPlan UserPlanEntity) GetUserPlanForPatch(Guid UserPlanId, bool trackChanges)

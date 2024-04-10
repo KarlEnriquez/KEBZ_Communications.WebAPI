@@ -14,8 +14,8 @@ namespace Contracts
 {
     public interface IUserPlanRepository
     {
-        IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges);
-        UserPlan GetUserPlan(Guid id, bool trackChanges);
+        IEnumerable<UserPlan> GetAllUserPlans(Guid UserId, bool trackChanges);
+        UserPlan GetUserPlan(Guid UserId, Guid id, bool trackChanges);
         void CreateUserPlan(UserPlan userPlan);
         void DeleteUserPlan(UserPlan userPlan);
     }

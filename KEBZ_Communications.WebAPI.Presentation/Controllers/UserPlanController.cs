@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")] //TODO: Delete this later
+    [Route("api/user/{UserId:guid}/userplan")] // temporary route, because this is intersect table
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     public class UserPlanController : ControllerBase
     {
@@ -18,21 +19,36 @@ namespace KEBZ_Communications.Presentation.Controllers
         public UserPlanController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        // [HttpGet]
-        // public IActionResult GetUserPlans()
-        // {
-        //     var UserPlans = _service.UserPlan.GetAllUserPlans(trackChanges: false);
-        //     return  Ok(UserPlans);
-        // }
-        
-        // [HttpGet("{id:guid}", Name = "UserPlanById")]
-        // public  IActionResult GetUserPlan(Guid id)
-        // {
-        //     var UserPlan =  _service.UserPlan.GetUserPlan(id, trackChanges: false);
-        //     return Ok(UserPlan);
-            
-        // }
-        
+        //[HttpGet]
+        //public IActionResult GetUserPlans()
+        //{
+        //    var UserPlans = _service.UserPlan.GetAllUserPlans(trackChanges: false);
+        //    return Ok(UserPlans);
+        //}
+
+        //[HttpGet("{id:guid}", Name = "UserPlanById")]
+        //public IActionResult GetUserPlan(Guid id)
+        //{
+        //    var UserPlan = _service.UserPlan.GetUserPlan(id, trackChanges: false);
+        //    return Ok(UserPlan);
+
+        //}
+
+        [HttpGet]
+        public IActionResult GetAllUserPlans(Guid UserId)
+        {
+            var UserPlans = _service.UserPlan.GetAllUserPlans(UserId, trackChanges: false);
+            return Ok(UserPlans);
+        }
+
+        [HttpGet("{id:guid}", Name = "UserPlanById")]
+        public IActionResult GetUserPlan(Guid UserId, Guid id)
+        {
+            var UserPlan = _service.UserPlan.GetUserPlan(UserId, id, trackChanges: false);
+            return Ok(UserPlan);
+
+        }
+
 
         // [HttpPost]
         // public  IActionResult CreateUserPlan([FromBody] UserPlanForCreationDto UserPlan)
@@ -42,7 +58,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         //     if (!ModelState.IsValid)
         //         return UnprocessableEntity(ModelState);
-            
+
         //     var createdUserPlan =  _service.UserPlan.CreateUserPlan(UserPlan);
         //     return CreatedAtRoute("UserPlanById", new { id = createdUserPlan.Id }, createdUserPlan);
         // }

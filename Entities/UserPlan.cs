@@ -9,6 +9,7 @@ namespace Entities
 {
     public class UserPlan
     {
+        public Guid UserPlanId { get; set; }
         public Guid UserId { get; set; }
         public Guid PlanId { get; set; }
 
