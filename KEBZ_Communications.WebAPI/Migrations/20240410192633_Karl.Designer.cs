@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
@@ -11,9 +12,11 @@ using Repository;
 namespace KEBZ_Communications.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240410192633_Karl")]
+    partial class Karl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +56,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            DeviceId = new Guid("07115c2a-ab2f-4777-87b5-7dc33e1596e6"),
+                            DeviceId = new Guid("9031f9ab-a03c-4f89-8da3-e2c9186e6912"),
                             IMEI = "400322363175433",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -62,7 +65,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("57a38da1-427c-4121-a93c-697d9396c788"),
+                            DeviceId = new Guid("c4977d44-030d-4278-aa13-179976da44ae"),
                             IMEI = "143567321209614",
                             Manufacturer = "Samsung",
                             Model = "Galaxy",
@@ -71,7 +74,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("682cd6aa-33fa-47e4-afca-bd3055cbe6d1"),
+                            DeviceId = new Guid("2fece41e-6625-4da9-8c00-5345737bdc8a"),
                             IMEI = "613638575519862",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -80,7 +83,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("8b9cf0db-c76d-47b3-b9bb-310933c77876"),
+                            DeviceId = new Guid("7a73e038-4bc6-4f0e-bc03-8e135a2266f6"),
                             IMEI = "536773236552500",
                             Manufacturer = "Google",
                             Model = "Pixel",
@@ -89,7 +92,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("80015f77-8255-47f3-9e1c-bdaf5f0f70c7"),
+                            DeviceId = new Guid("4c1bebc7-0397-402a-a900-e879be46c865"),
                             IMEI = "013750962836846",
                             Manufacturer = "Motorola",
                             Model = "Razr",
@@ -98,7 +101,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("63a68637-a178-4de5-8b21-0aeb0d3db7aa"),
+                            DeviceId = new Guid("82e2d236-ff60-43ab-9683-d371a8618548"),
                             IMEI = "464532177499263",
                             Manufacturer = "Samsung",
                             Model = "Galaxy",
@@ -107,7 +110,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("2ec741fa-64a9-496c-a0aa-d873a1efcbb3"),
+                            DeviceId = new Guid("3ee47975-cd69-464b-b46c-5fd444de1ab3"),
                             IMEI = "605713007805519",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -154,7 +157,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("ae91ff01-f882-43b6-ac18-74ed0611deaa"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4891),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(5681),
                             DataLimit = -1,
                             DeviceLimit = 2,
                             MinuteLimit = -1,
@@ -166,7 +169,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("550e5574-2e5f-4f3e-8c1a-29dea792e733"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4910),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(5700),
                             DataLimit = -1,
                             DeviceLimit = 5,
                             MinuteLimit = -1,
@@ -178,7 +181,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("c539a331-806d-470f-8960-3b8c2051fa7f"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4916),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(5715),
                             DataLimit = -1,
                             DeviceLimit = 2,
                             MinuteLimit = 1000,
@@ -190,7 +193,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("bbe280e0-0172-46cd-916b-c348d2c3a8b6"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4923),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(5730),
                             DataLimit = 10,
                             DeviceLimit = 2,
                             MinuteLimit = -1,
@@ -236,7 +239,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             UserId = new Guid("06917677-cdd6-4523-91b8-88d6d0a912d2"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4231),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(4617),
                             Email = "email1@email.com",
                             FirstName = "Bryan",
                             LastName = "Zbojna",
@@ -247,7 +250,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             UserId = new Guid("798acf1b-7339-44bd-8367-7132a978d7b1"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4306),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(4703),
                             Email = "email2@email.com",
                             FirstName = "Karl",
                             LastName = "Enriquez",
@@ -258,7 +261,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             UserId = new Guid("2a36409f-6732-459b-b7d1-a561c521a3cb"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4313),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(4718),
                             Email = "email3@email.com",
                             FirstName = "Ethan",
                             LastName = "Wintill",
@@ -269,7 +272,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             UserId = new Guid("7d84360e-4967-4c7b-8e4c-0f085de7ca4d"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4320),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(4737),
                             Email = "email4@email.com",
                             FirstName = "MyName",
                             LastName = "IsTest",
@@ -280,7 +283,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             UserId = new Guid("7a1be69a-38ac-4cde-a105-615de38c2d12"),
-                            CreatedAt = new DateTime(2024, 4, 10, 16, 15, 33, 701, DateTimeKind.Local).AddTicks(4325),
+                            CreatedAt = new DateTime(2024, 4, 10, 15, 26, 32, 452, DateTimeKind.Local).AddTicks(4755),
                             Email = "email5@email.com",
                             FirstName = "John",
                             LastName = "Doe",
@@ -292,70 +295,67 @@ namespace KEBZ_Communications.WebAPI.Migrations
 
             modelBuilder.Entity("Entities.UserPlan", b =>
                 {
-                    b.Property<Guid>("UserPlanId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PlanId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PlanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("UserPlanId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("UserPlanId");
+                    b.HasKey("UserId", "PlanId");
 
                     b.HasIndex("PlanId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("UserPlans");
 
                     b.HasData(
                         new
                         {
-                            UserPlanId = new Guid("57fc1c97-b5a1-4e9a-9b55-90906a2f2b0c"),
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("06917677-cdd6-4523-91b8-88d6d0a912d2"),
                             PlanId = new Guid("ae91ff01-f882-43b6-ac18-74ed0611deaa"),
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("06917677-cdd6-4523-91b8-88d6d0a912d2")
+                            UserPlanId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            UserPlanId = new Guid("a5b47a1f-e288-4c77-83b1-65334a9ba877"),
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("798acf1b-7339-44bd-8367-7132a978d7b1"),
                             PlanId = new Guid("550e5574-2e5f-4f3e-8c1a-29dea792e733"),
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("798acf1b-7339-44bd-8367-7132a978d7b1")
+                            UserPlanId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            UserPlanId = new Guid("f6a780d0-06a7-4d74-ae4d-d6fc8ff73b9f"),
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("2a36409f-6732-459b-b7d1-a561c521a3cb"),
                             PlanId = new Guid("ae91ff01-f882-43b6-ac18-74ed0611deaa"),
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("2a36409f-6732-459b-b7d1-a561c521a3cb")
+                            UserPlanId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            UserPlanId = new Guid("aaf6281f-9668-4b6d-b6bc-8de2307337f5"),
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("7d84360e-4967-4c7b-8e4c-0f085de7ca4d"),
                             PlanId = new Guid("ae91ff01-f882-43b6-ac18-74ed0611deaa"),
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("7d84360e-4967-4c7b-8e4c-0f085de7ca4d")
+                            UserPlanId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            UserPlanId = new Guid("1024c3d1-45f8-4513-b63c-8d4df5b1f2b8"),
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("7a1be69a-38ac-4cde-a105-615de38c2d12"),
                             PlanId = new Guid("bbe280e0-0172-46cd-916b-c348d2c3a8b6"),
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("7a1be69a-38ac-4cde-a105-615de38c2d12")
+                            UserPlanId = new Guid("00000000-0000-0000-0000-000000000000")
                         });
                 });
 

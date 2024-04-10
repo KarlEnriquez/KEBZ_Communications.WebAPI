@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using AutoMapper;
+using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -25,43 +27,53 @@ namespace Service
            _mapper = mapper;
         }
 
-        // public UserPlanDto CreateUserPlan(UserPlanForCreationDto UserPlan)
-        // {
-        //     var UserPlanEntity = _mapper.Map<UserPlan>(UserPlan);
-        //     _repositoryManager.UserPlan.CreateUserPlan(UserPlanEntity);
-        //     _repositoryManager.Save();
-        //     var UserPlanToReturn = _mapper.Map<UserPlanDto>(UserPlanEntity);
-        //     return UserPlanToReturn;
-        // }
+        public void DeleteUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges)
+        {
+            var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserId, UserPlanId, trackChanges);
+            if (UserPlan == null)
+                throw new UserPlanNotFoundException(UserId, UserPlanId);
 
-        // public void DeleteUserPlan(Guid UserPlanId, bool trackChanges)
-        // {
-        //     var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
-        //     if (UserPlan == null)
-        //         throw new UserPlanNotFoundException(UserPlanId);
+            _repositoryManager.UserPlan.DeleteUserPlan(UserPlan);
+            _repositoryManager.Save();
+        }
 
-        //     _repositoryManager.UserPlan.DeleteUserPlan(UserPlan);
-        //     _repositoryManager.Save();
-        // }
+        public UserPlanDto CreateUserPlan(UserPlanForCreationDto userPlan)
+        {
+            var student = _repositoryManager.User.GetUser(userPlan.UserId, false);
+            if (student == null)
+                throw new UserNotFoundException(userPlan.UserId);
 
+            var course = _repositoryManager.Plan.GetPlan(userPlan.PlanId, false);
+            if (course == null)
+                throw new PlanNotFoundException(userPlan.PlanId);
 
-        // public IEnumerable<UserPlanDto> GetAllUserPlans(bool trackChanges)
-        // {
-        //     var UserPlans = _repositoryManager.UserPlan.GetAllUserPlans(trackChanges);
-        //     var UserPlansDto = _mapper.Map<IEnumerable<UserPlanDto>>(UserPlans);
-        //     return UserPlansDto;
-        // }
+            var userPlanEntity = _mapper.Map<UserPlan>(userPlan); // Mapping from DTO to Entity directly without assigning User or Plan
+            _repositoryManager.UserPlan.CreateUserPlan(userPlanEntity);  // Directly create UserPlan without setting User and Plan entities
+            _repositoryManager.Save();
+            var userPlanToReturn = _mapper.Map<UserPlanDto>(userPlanEntity);
+            return userPlanToReturn;
+        }
 
-        // public UserPlanDto GetUserPlan(Guid UserPlanId, bool trackChanges)
-        // {
-        //     var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserPlanId, trackChanges);
-        //     if (UserPlan == null)
-        //         throw new UserPlanNotFoundException(UserPlanId);
+        public IEnumerable<UserPlanDto> GetAllUserPlans(Guid UserId, bool trackChanges)
+        {
+            var UserPlans = _repositoryManager.UserPlan.GetAllUserPlans(UserId, trackChanges);
+            var UserPlansDto = _mapper.Map<IEnumerable<UserPlanDto>>(UserPlans);
+            return UserPlansDto;
+        }
 
-        //     var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
+        public UserPlanDto GetUserPlan(Guid UserId, Guid id, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (User == null)
+                throw new UserNotFoundException(UserId);
 
-        //     return UserPlanDto;
-        // }
+            var UserPlan = _repositoryManager.UserPlan.GetUserPlan(UserId, id, trackChanges);
+            if (UserPlan == null)
+                throw new UserPlanNotFoundException(UserId, id);
+
+            var UserPlanDto = _mapper.Map<UserPlanDto>(UserPlan);
+            return UserPlanDto;
+        }
 
 
         // public (UserPlanForUpdateDto UserPlanForUpdate, UserPlan UserPlanEntity) GetUserPlanForPatch(Guid UserPlanId, bool trackChanges)
