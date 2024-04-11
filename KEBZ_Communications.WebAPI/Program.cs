@@ -30,6 +30,8 @@ builder.Services.AddControllers(config =>
 {
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
 });
+builder.Services.AddAuthentication();
+builder.Services.ConfigureIdentity();
 
 var app = builder.Build();
 app.UseExceptionHandler(opt => { });
@@ -56,6 +58,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseCors("CorsPolicy");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

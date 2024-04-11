@@ -12,6 +12,7 @@ namespace Service.Contracts
         IUserPlanService UserPlan { get; }
         IPlanService Plan { get; }
         IDeviceService Device { get; }
-        
+        IAuthenticationService Authentication { get; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Entities;
 using Shared.DataTransferObjects;
 
@@ -19,6 +19,7 @@ namespace KEBZ_Communications.WebAPI
             CreateMap<PlanForCreationDto, Plan>();
             CreateMap<PlanForUpdateDto,  Plan>().ReverseMap();
             CreateMap<UserPlanForCreationDto, UserPlan>();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }
