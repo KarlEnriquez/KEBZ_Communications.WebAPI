@@ -26,7 +26,7 @@ namespace Repository
             FindAll(trackChanges).OrderBy(s => s.LastName).ToList();
 
         public User GetUser(Guid userId, bool trackChanges) =>
-            FindByCondition(s => s.UserId.Equals(userId), trackChanges).SingleOrDefault();
+            FindByCondition(s => s.Id.Equals(userId), trackChanges).SingleOrDefault();
 
         public void CreateUser(User user) => Create(user);
         public void DeleteUser(User user) => Delete(user);
