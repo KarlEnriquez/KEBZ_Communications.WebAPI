@@ -44,7 +44,7 @@ namespace KEBZ_Communications.Presentation.Controllers
                 return UnprocessableEntity(ModelState);
 
             var createdUser = _service.User.CreateUser(User);
-            return CreatedAtRoute("UserById", new { id = createdUser.UserId }, createdUser);
+            return CreatedAtRoute("UserById", new { id = createdUser.Id }, createdUser);
         }
 
         [HttpDelete("{id:guid}")]
