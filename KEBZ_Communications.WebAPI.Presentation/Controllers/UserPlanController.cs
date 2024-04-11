@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user/{UserId:guid}/userplan")] 
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     public class UserPlanController : ControllerBase
     {
@@ -17,42 +18,39 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         public UserPlanController(IServiceManager serviceManager) => _service = serviceManager;
 
+        [HttpGet]
+        public IActionResult GetAllUserPlans(Guid UserId)
+        {
+            var UserPlans = _service.UserPlan.GetAllUserPlans(UserId, trackChanges: false);
+            return Ok(UserPlans);
+        }
 
-        // [HttpGet]
-        // public IActionResult GetUserPlans()
-        // {
-        //     var UserPlans = _service.UserPlan.GetAllUserPlans(trackChanges: false);
-        //     return  Ok(UserPlans);
-        // }
-        
-        // [HttpGet("{id:guid}", Name = "UserPlanById")]
-        // public  IActionResult GetUserPlan(Guid id)
-        // {
-        //     var UserPlan =  _service.UserPlan.GetUserPlan(id, trackChanges: false);
-        //     return Ok(UserPlan);
-            
-        // }
-        
+        [HttpGet("{id:guid}", Name = "UserPlanById")]
+        public IActionResult GetUserPlan(Guid UserId, Guid id)
+        {
+            var UserPlan = _service.UserPlan.GetUserPlan(UserId, id, trackChanges: false);
+            return Ok(UserPlan);
 
-        // [HttpPost]
-        // public  IActionResult CreateUserPlan([FromBody] UserPlanForCreationDto UserPlan)
-        // {
-        //     if (UserPlan == null)
-        //         return BadRequest("UserPlanForCreationDto object is null");
+        }
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-            
-        //     var createdUserPlan =  _service.UserPlan.CreateUserPlan(UserPlan);
-        //     return CreatedAtRoute("UserPlanById", new { id = createdUserPlan.Id }, createdUserPlan);
-        // }
+        [HttpPost]
+        public IActionResult CreateUserPlan(Guid UserId, [FromBody] UserPlanForCreationDto userPlan)
+        {
+            if (userPlan == null)
+                return BadRequest("UserPlanForCreationDto object is null");
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeleteUserPlan(Guid id)
-        // {
-        //      _service.UserPlan.DeleteUserPlan(id, trackChanges: false);
-        //     return NoContent();
-        // }
+            userPlan.UserId = UserId; // Ensuring the UserId is set correctly in the DTO
+
+            var createdUserPlan = _service.UserPlan.CreateUserPlan(userPlan);
+            return CreatedAtRoute("UserPlanById", new { UserId = UserId, id = createdUserPlan.UserPlanId }, createdUserPlan);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteUserPlan(Guid UserId, Guid id)
+        {
+            _service.UserPlan.DeleteUserPlan(UserId, id, trackChanges: false);
+            return NoContent();
+        }
 
         // [HttpPut("{id:guid}")]
         // public  IActionResult UpdateUserPlan(Guid id, [FromBody] UserPlanForUpdateDto UserPlan)

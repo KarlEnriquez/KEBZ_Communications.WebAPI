@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -18,54 +19,54 @@ namespace KEBZ_Communications.Presentation.Controllers
         public PlanController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        // [HttpGet]
-        // public IActionResult GetPlans()
-        // {
-        //     var Plans = _service.Plan.GetAllPlans(trackChanges: false);
-        //     return  Ok(Plans);
-        // }
+         [HttpGet]
+         public IActionResult GetPlans()
+         {
+             var Plans = _service.Plan.GetAllPlans(trackChanges: false);
+             return  Ok(Plans);
+         }
 
-        // [HttpGet("{id:guid}", Name = "PlanById")]
-        // public  IActionResult GetPlan(Guid id)
-        // {
-        //     var Plan =  _service.Plan.GetPlan(id, trackChanges: false);
-        //     return Ok(Plan);
+         [HttpGet("{id:guid}", Name = "PlanById")]
+         public  IActionResult GetPlan(Guid id)
+         {
+             var Plan =  _service.Plan.GetPlan(id, trackChanges: false);
+             return Ok(Plan);
             
-        // }
-        
+         }
 
-        // [HttpPost]
-        // public  IActionResult CreatePlan([FromBody] PlanForCreationDto Plan)
-        // {
-        //     if (Plan == null)
-        //         return BadRequest("PlanForCreationDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-            
-        //     var createdPlan =  _service.Plan.CreatePlan(Plan);
-        //     return CreatedAtRoute("PlanById", new { id = createdPlan.Id }, createdPlan);
-        // }
+        [HttpPost]
+        public IActionResult CreatePlan([FromBody] PlanForCreationDto Plan)
+        {
+            if (Plan == null)
+                return BadRequest("PlanForCreationDto object is null");
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeletePlan(Guid id)
-        // {
-        //      _service.Plan.DeletePlan(id, trackChanges: false);
-        //     return NoContent();
-        // }
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        // [HttpPut("{id:guid}")]
-        // public  IActionResult UpdatePlan(Guid id, [FromBody] PlanForUpdateDto Plan)
-        // {
-        //     if (Plan == null)
-        //         return BadRequest("PlanForUpdateDto object is null");
+            var createdPlan = _service.Plan.CreatePlan(Plan);
+            return CreatedAtRoute("PlanById", new { id = createdPlan.PlanId }, createdPlan);
+        }
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeletePlan(Guid id)
+        {
+            _service.Plan.DeletePlan(id, trackChanges: false);
+            return NoContent();
+        }
 
-        //      _service.Plan.UpdatePlan(id, Plan, trackChanges: true);
-        //     return NoContent();
-        // }
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdatePlan(Guid id, [FromBody] PlanForUpdateDto Plan)
+        {
+            if (Plan == null)
+                return BadRequest("PlanForUpdateDto object is null");
+
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _service.Plan.UpdatePlan(id, Plan, trackChanges: true);
+            return NoContent();
+        }
 
         // /// <summary>
         // /// Patch Operations
@@ -73,24 +74,24 @@ namespace KEBZ_Communications.Presentation.Controllers
         // /// Copy, Move, Test
         // /// Properties within a Patch Request:
         // /// op: operation, path: path to the property, value: value to be used
-        // [HttpPatch("{id:guid}")]
-        // public  IActionResult PartiallyUpdatePlan(Guid id, [FromBody] JsonPatchDocument<PlanForUpdateDto> patchDocument)
-        // {
-        //     if (patchDocument is null)
-        //         return BadRequest("patchDocument object sent from client is null");
+        [HttpPatch("{id:guid}")]
+        public IActionResult PartiallyUpdatePlan(Guid id, [FromBody] JsonPatchDocument<PlanForUpdateDto> patchDocument)
+        {
+            if (patchDocument is null)
+                return BadRequest("patchDocument object sent from client is null");
 
-        //     var result =  _service.Plan.GetPlanForPatch(id, trackChanges: true);
-        //     patchDocument.ApplyTo(result.PlanForUpdate);
+            var result = _service.Plan.GetPlanForPatch(id, trackChanges: true);
+            patchDocument.ApplyTo(result.PlanForUpdate);
 
-        //     TryValidateModel(result.PlanForUpdate);
+            TryValidateModel(result.PlanForUpdate);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.Plan.SaveChangesForPatch(result.PlanForUpdate, result.PlanEntity);
+            _service.Plan.SaveChangesForPatch(result.PlanForUpdate, result.PlanEntity);
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
 
     }
