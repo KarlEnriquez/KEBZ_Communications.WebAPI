@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.DataTransferObjects;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -18,79 +19,79 @@ namespace KEBZ_Communications.Presentation.Controllers
         public DeviceController(IServiceManager serviceManager) => _service = serviceManager;
 
 
-        // [HttpGet]
-        // public IActionResult GetDevices()
-        // {
-        //     var Devices = _service.Device.GetAllDevices(trackChanges: false);
-        //     return  Ok(Devices);
-        // }
-   
-        // [HttpGet("{id:guid}", Name = "DeviceById")]
-        // public  IActionResult GetDevice(Guid id)
-        // {
-        //     var Device =  _service.Device.GetDevice(id, trackChanges: false);
-        //     return Ok(Device);
-            
-        // }
-        
+         [HttpGet]
+         public IActionResult GetDevices()
+         {
+             var Devices = _service.Device.GetAllDevices(trackChanges: false);
+             return  Ok(Devices);
+         }
 
-        // [HttpPost]
-        // public  IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
-        // {
-        //     if (Device == null)
-        //         return BadRequest("DeviceForCreationDto object is null");
+         [HttpGet("{id:guid}", Name = "DeviceById")]
+         public  IActionResult GetDevice(Guid id)
+         {
+             var Device =  _service.Device.GetDevice(id, trackChanges: false);
+             return Ok(Device);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
-            
-        //     var createdDevice =  _service.Device.CreateDevice(Device);
-        //     return CreatedAtRoute("DeviceById", new { id = createdDevice.Id }, createdDevice);
-        // }
+         }
 
-        // [HttpDelete("{id:guid}")]
-        // public  IActionResult DeleteDevice(Guid id)
-        // {
-        //      _service.Device.DeleteDevice(id, trackChanges: false);
-        //     return NoContent();
-        // }
 
-        // [HttpPut("{id:guid}")]
-        // public  IActionResult UpdateDevice(Guid id, [FromBody] DeviceForUpdateDto Device)
-        // {
-        //     if (Device == null)
-        //         return BadRequest("DeviceForUpdateDto object is null");
+        [HttpPost]
+        public IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
+        {
+            if (Device == null)
+                return BadRequest("DeviceForCreationDto object is null");
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //      _service.Device.UpdateDevice(id, Device, trackChanges: true);
-        //     return NoContent();
-        // }
+            var createdDevice = _service.Device.CreateDevice(Device);
+            return CreatedAtRoute("DeviceById", new { id = createdDevice.DeviceId }, createdDevice);
+        }
 
-        // /// <summary>
-        // /// Patch Operations
-        // /// Add, Replace, Remove
-        // /// Copy, Move, Test
-        // /// Properties within a Patch Request:
-        // /// op: operation, path: path to the property, value: value to be used
-        // [HttpPatch("{id:guid}")]
-        // public  IActionResult PartiallyUpdateDevice(Guid id, [FromBody] JsonPatchDocument<DeviceForUpdateDto> patchDocument)
-        // {
-        //     if (patchDocument is null)
-        //         return BadRequest("patchDocument object sent from client is null");
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteDevice(Guid id)
+        {
+            _service.Device.DeleteDevice(id, trackChanges: false);
+            return NoContent();
+        }
 
-        //     var result =  _service.Device.GetDeviceForPatch(id, trackChanges: true);
-        //     patchDocument.ApplyTo(result.DeviceForUpdate);
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateDevice(Guid id, [FromBody] DeviceForUpdateDto Device)
+        {
+            if (Device == null)
+                return BadRequest("DeviceForUpdateDto object is null");
 
-        //     TryValidateModel(result.DeviceForUpdate);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-        //     if (!ModelState.IsValid)
-        //         return UnprocessableEntity(ModelState);
+            _service.Device.UpdateDevice(id, Device, trackChanges: true);
+            return NoContent();
+        }
 
-        //      _service.Device.SaveChangesForPatch(result.DeviceForUpdate, result.DeviceEntity);
+        /// <summary>
+        /// Patch Operations
+        /// Add, Replace, Remove
+        /// Copy, Move, Test
+        /// Properties within a Patch Request:
+        /// op: operation, path: path to the property, value: value to be used
+        [HttpPatch("{id:guid}")]
+        public IActionResult PartiallyUpdateDevice(Guid id, [FromBody] JsonPatchDocument<DeviceForUpdateDto> patchDocument)
+        {
+            if (patchDocument is null)
+                return BadRequest("patchDocument object sent from client is null");
 
-        //     return NoContent();
-        // }
+            var result = _service.Device.GetDeviceForPatch(id, trackChanges: true);
+            patchDocument.ApplyTo(result.DeviceForUpdate);
+
+            TryValidateModel(result.DeviceForUpdate);
+
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _service.Device.SaveChangesForPatch(result.DeviceForUpdate, result.DeviceEntity);
+
+            return NoContent();
+        }
 
 
     }

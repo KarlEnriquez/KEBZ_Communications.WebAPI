@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +27,11 @@ namespace Repository
         {
             base.OnModelCreating(modelBuilder);
 
+            //modelBuilder.Entity<UserPlan>()
+            //    .HasKey(c => new { c.UserId, c.PlanId }); TOTO: Remove commented code, removing this because I created UserPlanId
+
             modelBuilder.Entity<UserPlan>()
-                .HasKey(c => new { c.UserId, c.PlanId });
+                .HasKey(c => new { c.UserPlanId });
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new PlanConfiguration());

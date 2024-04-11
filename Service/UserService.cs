@@ -19,24 +19,24 @@ namespace Service
             _logger = logger;
             _mapper = mapper;
         }
-        // public UserDto CreateUser(UserForCreationDto User)
-        // {
-        //     var UserEntity = _mapper.Map<User>(User);
-        //     _repositoryManager.User.CreateUser(UserEntity);
-        //     _repositoryManager.Save();
-        //     var UserToReturn = _mapper.Map<UserDto>(UserEntity);
-        //     return UserToReturn;
-        // }
+        public UserDto CreateUser(UserForCreationDto User)
+        {
+            var UserEntity = _mapper.Map<User>(User);
+            _repositoryManager.User.CreateUser(UserEntity);
+            _repositoryManager.Save();
+            var UserToReturn = _mapper.Map<UserDto>(UserEntity);
+            return UserToReturn;
+        }
 
-        // public void DeleteUser(Guid UserId, bool trackChanges)
-        // {
-        //     var User = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (User == null)
-        //         throw new UserNotFoundException(UserId);
+        public void DeleteUser(Guid UserId, bool trackChanges)
+        {
+            var User = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (User == null)
+                throw new UserNotFoundException(UserId);
 
-        //     _repositoryManager.User.DeleteUser(User);
-        //     _repositoryManager.Save();
-        // }
+            _repositoryManager.User.DeleteUser(User);
+            _repositoryManager.Save();
+        }
 
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {
@@ -56,31 +56,30 @@ namespace Service
             return UserDto;
         }
 
+        public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
+        {
+            var UserEntity = _repositoryManager.User.GetUser(UserId, trackChanges);
+            if (UserEntity == null)
+                throw new UserNotFoundException(UserId);
 
-        // public (UserForUpdateDto UserForUpdate, User UserEntity) GetUserForPatch(Guid UserId, bool trackChanges)
-        // {
-        //     var UserEntity = _repositoryManager.User.GetUser(UserId, trackChanges);
-        //     if (UserEntity == null)
-        //         throw new UserNotFoundException(UserId);
+            var UserForUpdate = _mapper.Map<UserForUpdateDto>(UserEntity);
+            return (UserForUpdate, UserEntity);
+        }
 
-        //     var UserForUpdate = _mapper.Map<UserForUpdateDto>(UserEntity);
-        //     return (UserForUpdate, UserEntity);
-        // }
+        public void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity)
+        {
+            _mapper.Map(UserForUpdate, UserEntity);
+            _repositoryManager.Save();
+        }
 
-        // public void SaveChangesForPatch(UserForUpdateDto UserForUpdate, User UserEntity)
-        // {
-        //     _mapper.Map(UserForUpdate, UserEntity);
-        //     _repositoryManager.Save();
-        // }
+        public void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges)
+        {
+            var UserEntity = _repositoryManager.User.GetUser(id, trackChanges);
+            if (UserEntity == null)
+                throw new UserNotFoundException(id);
 
-        // public void UpdateUser(Guid id, UserForUpdateDto UserForUpdate, bool trackChanges)
-        // {
-        //     var UserEntity = _repositoryManager.User.GetUser(id, trackChanges);
-        //     if (UserEntity == null)
-        //         throw new UserNotFoundException(id);
-
-        //     _mapper.Map(UserForUpdate, UserEntity);
-        //     _repositoryManager.Save();
-        // }
+            _mapper.Map(UserForUpdate, UserEntity);
+            _repositoryManager.Save();
+        }
     }
 }
