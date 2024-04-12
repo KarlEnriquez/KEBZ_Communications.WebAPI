@@ -9,13 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{BFB1F741-A633-4913-8D3B-A5B116ACCC1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{2B0761A2-3C32-466E-B350-6B88E6E5A8CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{2B0761A2-3C32-466E-B350-6B88E6E5A8CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{74A64311-2375-4EC5-A01A-BAA764EF5070}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{74A64311-2375-4EC5-A01A-BAA764EF5070}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{CFB0CA24-D1F6-4256-BFB8-CA760D9F57E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{CFB0CA24-D1F6-4256-BFB8-CA760D9F57E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEBZ_Communications.WebAPI.Presentation", "KEBZ_Communications.WebAPI.Presentation\KEBZ_Communications.WebAPI.Presentation.csproj", "{2F2D30AB-8FF4-46AB-BC29-A0A93711A8B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KEBZ_Communications.WebAPI.Presentation", "KEBZ_Communications.WebAPI.Presentation\KEBZ_Communications.WebAPI.Presentation.csproj", "{2F2D30AB-8FF4-46AB-BC29-A0A93711A8B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{701C93E6-139E-43D6-B1EE-1C8C1D89AC92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{1D2FB1A0-1163-4682-9F38-74B3B2C85A3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{2F2D30AB-8FF4-46AB-BC29-A0A93711A8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F2D30AB-8FF4-46AB-BC29-A0A93711A8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F2D30AB-8FF4-46AB-BC29-A0A93711A8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701C93E6-139E-43D6-B1EE-1C8C1D89AC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701C93E6-139E-43D6-B1EE-1C8C1D89AC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701C93E6-139E-43D6-B1EE-1C8C1D89AC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701C93E6-139E-43D6-B1EE-1C8C1D89AC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2FB1A0-1163-4682-9F38-74B3B2C85A3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2FB1A0-1163-4682-9F38-74B3B2C85A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2FB1A0-1163-4682-9F38-74B3B2C85A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2FB1A0-1163-4682-9F38-74B3B2C85A3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,15 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KEBZ_Communications.WebAPI.Entities;
+using Entities;
 
 
 namespace Contracts
 {
     public interface IUserPlanRepository
     {
-        IEnumerable<UserPlan> GetAllUserPlans(bool trackChanges);
-        UserPlan GetUserPlan(Guid id);
+        IEnumerable<UserPlan> GetAllUserPlans(Guid UserId, bool trackChanges);
+        UserPlan GetUserPlan(Guid UserId, Guid id, bool trackChanges);
         void CreateUserPlan(UserPlan userPlan);
         void DeleteUserPlan(UserPlan userPlan);
     }

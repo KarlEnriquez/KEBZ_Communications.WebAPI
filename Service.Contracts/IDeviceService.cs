@@ -1,9 +1,18 @@
-﻿using KEBZ_Communications.WebAPI.Entities;
+﻿using Entities;
+using Shared.DataTransferObjects;
 
 namespace Service.Contracts
 {
     public interface IDeviceService
     {
-        IEnumerable<Device> GetAllDevices(bool trackChanges);
+        DeviceDto CreateDevice(DeviceForCreationDto Device);
+        void DeleteDevice(Guid DeviceId, bool trackChanges);
+        IEnumerable<DeviceDto> GetAllDevices(bool trackChanges);
+
+        DeviceDto GetDevice(Guid id, bool trackChanges);
+        (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges);
+        void SaveChangesForPatch(DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity);
+
+        void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges);
     }
 }

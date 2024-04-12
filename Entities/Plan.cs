@@ -5,11 +5,11 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KEBZ_Communications.WebAPI.Entities
+namespace Entities
 {
     public class Plan
     {
-        public int PlanId { get; set; }
+        public Guid PlanId { get; set; }
         public string? PlanName { get; set; }
         public string? PlanDescription { get; set; }
         
