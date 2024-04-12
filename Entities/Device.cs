@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Filename: Device.cs
  * Description: This file contains the definition of the Device entity class.
  */
@@ -15,6 +15,9 @@ namespace Entities
 
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
+        [ForeignKey(nameof(UserPlan))]
+        public Guid UserPlanId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string? PhoneNumber { get; set; }
         [MaxLength(15)] // IMEI is 15 digits long
         public string? IMEI { get; set; }
