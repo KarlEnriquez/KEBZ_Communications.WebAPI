@@ -51,6 +51,13 @@ namespace Service
             return DevicesDto;
         }
 
+        public IEnumerable<DeviceDto> GetDevicesFromUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges)
+        {
+            var Devices = _repositoryManager.Device.GetDevicesFromUserPlan(UserId, UserPlanId, trackChanges);
+            var DevicesDto = _mapper.Map<IEnumerable<DeviceDto>>(Devices);
+            return DevicesDto;
+        }
+
         public DeviceDto GetDevice(Guid DeviceId, bool trackChanges)
         {
             var Device = _repositoryManager.Device.GetDevice(DeviceId, trackChanges);

@@ -25,6 +25,8 @@ namespace Repository
         public IEnumerable<Device> GetAllDevices(bool trackChanges) =>
             FindAll(trackChanges).OrderBy(s => s.DeviceId).ToList();
 
+        public IEnumerable<Device> GetDevicesFromUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges) =>
+            FindByCondition(s => s.UserId.Equals(UserId) && s.UserPlanId.Equals(UserPlanId), trackChanges).ToList();
         public Device GetDevice(Guid deviceId, bool trackChanges) =>
             FindByCondition(s => s.DeviceId.Equals(deviceId), trackChanges).SingleOrDefault();
 

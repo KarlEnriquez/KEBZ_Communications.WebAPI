@@ -8,7 +8,7 @@ namespace Service.Contracts
         DeviceDto CreateDevice(DeviceForCreationDto Device);
         void DeleteDevice(Guid DeviceId, bool trackChanges);
         IEnumerable<DeviceDto> GetAllDevices(bool trackChanges);
-
+        IEnumerable<DeviceDto> GetDevicesFromUserPlan(Guid UserId, Guid UserPlanId, bool trackChanges);
         DeviceDto GetDevice(Guid id, bool trackChanges);
         (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges);
         void SaveChangesForPatch(DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity);
