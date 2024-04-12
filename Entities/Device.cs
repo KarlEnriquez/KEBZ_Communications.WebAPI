@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Filename: Device.cs
  * Description: This file contains the definition of the Device entity class.
  */
