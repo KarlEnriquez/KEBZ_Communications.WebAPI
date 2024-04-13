@@ -56,9 +56,19 @@ namespace Service
             if (!result)
                 _logger.LogWarn($"{nameof(ValidateUser)}: Authentication failed. Wrong username or password.");
 
+            System.Console.WriteLine(_user.Id);
+
             return result;
         }
 
+        public async Task<Guid?> UserIDForClient(UserForAuthenticationDto userForAuthentication){
+            _user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
+
+            if (_user == null)
+                return null;
+
+            return _user.Id;
+        }
         private SigningCredentials GetSigningCredentials()
         {
             var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
@@ -98,5 +108,7 @@ namespace Service
 
             return tokenOptions;
         }
+
+       
     }
 }

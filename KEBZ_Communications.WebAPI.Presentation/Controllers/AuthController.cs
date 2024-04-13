@@ -42,7 +42,7 @@ namespace KEBZ_Communications.Presentation.Controllers
                 return Unauthorized();
             }
             
-            return Ok(new { Token = await _service.Authentication.CreateToken() });
+            return Ok(new { Token = await _service.Authentication.CreateToken(), userId = _service.Authentication.UserIDForClient(userForAuthentication).Result });
         }
     }
 }
