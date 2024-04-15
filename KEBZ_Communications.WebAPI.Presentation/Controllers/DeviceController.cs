@@ -35,6 +35,17 @@ namespace KEBZ_Communications.Presentation.Controllers
          }
 
 
+
+                
+        [HttpGet("{userId:guid}/{userPlanId:guid}", Name = "DevicesFromUserPlan")]
+        public IActionResult GetDevicesFromUserPlan(Guid userId, Guid userPlanId)
+        {
+            var Devices = _service.Device.GetDevicesFromUserPlan(userId, userPlanId, trackChanges: false);
+            return Ok(Devices);
+        }
+
+
+
         [HttpPost]
         public IActionResult CreateDevice([FromBody] DeviceForCreationDto Device)
         {

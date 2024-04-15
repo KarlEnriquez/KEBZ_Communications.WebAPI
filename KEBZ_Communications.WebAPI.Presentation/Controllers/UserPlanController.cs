@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {

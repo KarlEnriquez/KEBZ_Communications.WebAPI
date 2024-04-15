@@ -9,6 +9,7 @@ namespace Shared.DataTransferObjects
     public record DeviceForCreationDto
     {
         public Guid UserId { get; init; }
+        public Guid UserPlanId { get; init; }
         public string? PhoneNumber { get; init; }
         public string? IMEI { get; init; }
         public string? Manufacturer { get; init; }

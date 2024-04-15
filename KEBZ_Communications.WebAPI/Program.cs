@@ -32,6 +32,9 @@ builder.Services.AddControllers(config =>
 });
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureApplicationCookie();
+
+
 
 var app = builder.Build();
 app.UseExceptionHandler(opt => { });

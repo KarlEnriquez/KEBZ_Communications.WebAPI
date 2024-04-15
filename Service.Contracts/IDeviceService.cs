@@ -11,6 +11,7 @@ namespace Service.Contracts
 
         DeviceDto GetDevice(Guid id, bool trackChanges);
         (DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity) GetDeviceForPatch(Guid DeviceId, bool trackChanges);
+        IEnumerable<DeviceDto> GetDevicesFromUserPlan(Guid userId, Guid userPlanId, bool trackChanges);
         void SaveChangesForPatch(DeviceForUpdateDto DeviceForUpdate, Device DeviceEntity);
 
         void UpdateDevice(Guid id, DeviceForUpdateDto DeviceForUpdate, bool trackChanges);
