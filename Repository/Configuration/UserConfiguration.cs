@@ -25,7 +25,7 @@ namespace Repository.Configuration
                     {
                         Id = new Guid("06917677-cdd6-4523-91b8-88d6d0a912d2"),
                         UserName= "username1",
-                        Password = "password1",
+                        //Password = "password1",
                         Email = "email1@email.com",
                         FirstName = "Bryan",
                         LastName = "Zbojna",
@@ -36,7 +36,7 @@ namespace Repository.Configuration
                     {
                         Id = new Guid("798acf1b-7339-44bd-8367-7132a978d7b1"),
                         UserName= "username2",
-                        Password = "password2",
+                        //Password = "password2",
                         Email = "email2@email.com",
                         FirstName = "Karl",
                         LastName = "Enriquez",
@@ -47,7 +47,7 @@ namespace Repository.Configuration
                     {
                         Id = new Guid("2a36409f-6732-459b-b7d1-a561c521a3cb"),
                         UserName= "username3",
-                        Password = "password3",
+                        //Password = "password3",
                         Email = "email3@email.com",
                         FirstName = "Ethan",
                         LastName = "Wintill",
@@ -58,7 +58,7 @@ namespace Repository.Configuration
                     {
                         Id = new Guid("7d84360e-4967-4c7b-8e4c-0f085de7ca4d"),
                         UserName= "username4",
-                        Password = "password4",
+                        //Password = "password4",
                         Email = "email4@email.com",
                         FirstName = "MyName",
                         LastName = "IsTest",
@@ -69,7 +69,7 @@ namespace Repository.Configuration
                     {
                         Id = new Guid("7a1be69a-38ac-4cde-a105-615de38c2d12"),
                         UserName= "username5",
-                        Password = "password5",
+                        //Password = "password5",
                         Email = "email5@email.com",
                         FirstName = "John",
                         LastName = "Doe",
