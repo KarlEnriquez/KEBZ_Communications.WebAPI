@@ -13,6 +13,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 {
     [Route("api/user/{UserId:guid}/userplan")] 
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
+    [Authorize]
     public class UserPlanController : ControllerBase
     {
         private readonly IServiceManager _service;

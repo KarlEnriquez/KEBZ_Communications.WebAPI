@@ -9,6 +9,12 @@ using Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
+
 
 
 namespace KEBZ_Communications.WebAPI.Extensions
@@ -50,11 +56,40 @@ namespace KEBZ_Communications.WebAPI.Extensions
             services.AddDbContext<RepositoryContext>(opts =>
                 opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
-        public static void ConfigureApplicationCookie(this IServiceCollection services)
+        public static void ConfigureSwagger(this IServiceCollection services)
         {
-            services.ConfigureApplicationCookie(options =>
+            services.AddSwaggerGen(s =>
             {
-                options.LoginPath = new PathString("/api/authentication/login");
+                s.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "KEBZ Communications API",
+                    Version = "v1"
+                });
+
+                s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter a valid token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+
+                s.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                new string[]{}
+            }
+        });
             });
         }
         public static void ConfigureIdentity(this IServiceCollection services)
@@ -71,6 +106,7 @@ namespace KEBZ_Communications.WebAPI.Extensions
                 .AddEntityFrameworkStores<RepositoryContext>()
                 .AddDefaultTokenProviders();
         }
+
 
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
