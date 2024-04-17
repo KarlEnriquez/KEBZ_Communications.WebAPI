@@ -44,6 +44,13 @@ namespace KEBZ_Communications.Presentation.Controllers
             return Ok(Devices);
         }
 
+        [HttpGet("{userId:guid}/device", Name = "DevicesFromUser")]
+        public IActionResult GetDevicesFromUser(Guid userId)
+        {
+            var Devices = _service.Device.GetDevicesFromUser(userId, trackChanges: false);
+            return Ok(Devices);
+        }
+
 
 
         [HttpPost]
