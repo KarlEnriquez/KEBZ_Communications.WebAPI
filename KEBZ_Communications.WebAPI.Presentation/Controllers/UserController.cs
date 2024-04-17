@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
+    [Authorize]
+
     public class UserController : ControllerBase
     {
         private readonly IServiceManager _service;

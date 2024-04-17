@@ -22,6 +22,8 @@ builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+
 //builder.Services.Configure<ApiBehaviorOptions>(options =>
 //{
 //    options.SuppressModelStateInvalidFilter = true; // Doesn't automatically return 400 response
@@ -32,7 +34,8 @@ builder.Services.AddControllers(config =>
 });
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
-builder.Services.ConfigureApplicationCookie();
+builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureSwagger();
 
 
 
