@@ -65,6 +65,8 @@ namespace KEBZ_Communications.Presentation.Controllers
                 return UnprocessableEntity(ModelState);
 
             var createdDevice = _service.Device.CreateDevice(Device);
+            if (createdDevice == null)
+                return BadRequest("Error: Device could not be created, likely duplicate phone number");
             return CreatedAtRoute("DeviceById", new { id = createdDevice.DeviceId }, createdDevice);
         }
 
