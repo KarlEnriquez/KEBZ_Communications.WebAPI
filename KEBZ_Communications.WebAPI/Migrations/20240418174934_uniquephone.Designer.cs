@@ -12,8 +12,8 @@ using Repository;
 namespace KEBZ_Communications.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240414184856_userplaniddevice")]
-    partial class userplaniddevice
+    [Migration("20240418174934_uniquephone")]
+    partial class uniquephone
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,8 +42,9 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -53,6 +54,9 @@ namespace KEBZ_Communications.WebAPI.Migrations
 
                     b.HasKey("DeviceId");
 
+                    b.HasAlternateKey("PhoneNumber")
+                        .HasName("AlternateKey_PhoneNumber");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Devices");
@@ -60,7 +64,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            DeviceId = new Guid("8f8ce237-2976-48b3-b740-a100299579ae"),
+                            DeviceId = new Guid("d380f3a2-8991-4e10-98da-4d265ecaf916"),
                             IMEI = "400322363175433",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -70,7 +74,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("8cb627dd-f70d-4606-b903-d21a9eee14f6"),
+                            DeviceId = new Guid("072ee987-01d2-4a91-998d-b85e89220b23"),
                             IMEI = "143567321209614",
                             Manufacturer = "Samsung",
                             Model = "Galaxy",
@@ -80,7 +84,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("836f99d4-43ca-4bd1-82f1-38dce36be77c"),
+                            DeviceId = new Guid("8fdd490a-cdfe-4ff5-950d-0917ace8c23c"),
                             IMEI = "613638575519862",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -90,7 +94,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("46778fee-73cd-46d3-8432-063e42b419e4"),
+                            DeviceId = new Guid("25673bd8-2adc-4350-978c-6b2ff930ba54"),
                             IMEI = "536773236552500",
                             Manufacturer = "Google",
                             Model = "Pixel",
@@ -100,7 +104,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("cf096677-6e6f-4607-8d5e-e43da3afab05"),
+                            DeviceId = new Guid("f6608b77-58c8-4597-948c-a8b50ec30846"),
                             IMEI = "013750962836846",
                             Manufacturer = "Motorola",
                             Model = "Razr",
@@ -110,7 +114,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("770c4356-3ddb-417f-bcdb-cfb694bf51b6"),
+                            DeviceId = new Guid("1c2359b2-1d5f-4e5a-89d0-4a40819ccd67"),
                             IMEI = "464532177499263",
                             Manufacturer = "Samsung",
                             Model = "Galaxy",
@@ -120,7 +124,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         },
                         new
                         {
-                            DeviceId = new Guid("83f872ec-3173-4ed9-9290-a816848df6af"),
+                            DeviceId = new Guid("80f7a55d-4f0e-4a2a-9ace-b6a74291e82c"),
                             IMEI = "605713007805519",
                             Manufacturer = "Apple",
                             Model = "IPhone",
@@ -168,7 +172,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("ae91ff01-f882-43b6-ac18-74ed0611deaa"),
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1620),
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7260),
                             DataLimit = -1,
                             DeviceLimit = 2,
                             MinuteLimit = -1,
@@ -180,7 +184,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("550e5574-2e5f-4f3e-8c1a-29dea792e733"),
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1620),
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7270),
                             DataLimit = -1,
                             DeviceLimit = 5,
                             MinuteLimit = -1,
@@ -192,7 +196,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("c539a331-806d-470f-8960-3b8c2051fa7f"),
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1630),
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7270),
                             DataLimit = -1,
                             DeviceLimit = 2,
                             MinuteLimit = 1000,
@@ -204,7 +208,7 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         new
                         {
                             PlanId = new Guid("bbe280e0-0172-46cd-916b-c348d2c3a8b6"),
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1630),
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7270),
                             DataLimit = 10,
                             DeviceLimit = 2,
                             MinuteLimit = -1,
@@ -258,9 +262,6 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -300,14 +301,13 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         {
                             Id = new Guid("06917677-cdd6-4523-91b8-88d6d0a912d2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a5234556-a54d-4306-a98f-fe47459b8d9f",
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1430),
+                            ConcurrencyStamp = "f69a52d9-1f9b-4fe5-9861-567591373a44",
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7080),
                             Email = "email1@email.com",
                             EmailConfirmed = false,
                             FirstName = "Bryan",
                             LastName = "Zbojna",
                             LockoutEnabled = false,
-                            Password = "password1",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "username1",
@@ -317,14 +317,13 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         {
                             Id = new Guid("798acf1b-7339-44bd-8367-7132a978d7b1"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c1d33a44-e9cb-4351-bc34-ca65db880453",
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1490),
+                            ConcurrencyStamp = "a17b6dfe-3c9e-4bb7-a598-5e72a866b0dd",
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7130),
                             Email = "email2@email.com",
                             EmailConfirmed = false,
                             FirstName = "Karl",
                             LastName = "Enriquez",
                             LockoutEnabled = false,
-                            Password = "password2",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "username2",
@@ -334,14 +333,13 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         {
                             Id = new Guid("2a36409f-6732-459b-b7d1-a561c521a3cb"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "210a3544-c963-4091-a39a-7fbde5894de5",
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1500),
+                            ConcurrencyStamp = "46b40560-adfe-4817-81c2-d8b31108fa00",
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7140),
                             Email = "email3@email.com",
                             EmailConfirmed = false,
                             FirstName = "Ethan",
                             LastName = "Wintill",
                             LockoutEnabled = false,
-                            Password = "password3",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "username3",
@@ -351,14 +349,13 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         {
                             Id = new Guid("7d84360e-4967-4c7b-8e4c-0f085de7ca4d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "970d377f-ee83-41a9-a506-da74052d578b",
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1510),
+                            ConcurrencyStamp = "909905cd-e415-4e1a-bbe8-340bdb42f363",
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7150),
                             Email = "email4@email.com",
                             EmailConfirmed = false,
                             FirstName = "MyName",
                             LastName = "IsTest",
                             LockoutEnabled = false,
-                            Password = "password4",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "username4",
@@ -368,14 +365,13 @@ namespace KEBZ_Communications.WebAPI.Migrations
                         {
                             Id = new Guid("7a1be69a-38ac-4cde-a105-615de38c2d12"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "36a295a6-72aa-41db-9b89-b2e5e28d4231",
-                            CreatedAt = new DateTime(2024, 4, 14, 13, 48, 56, 538, DateTimeKind.Local).AddTicks(1520),
+                            ConcurrencyStamp = "61dc4b8e-307f-441e-9b5e-e2106f23a0ca",
+                            CreatedAt = new DateTime(2024, 4, 18, 12, 49, 34, 244, DateTimeKind.Local).AddTicks(7160),
                             Email = "email5@email.com",
                             EmailConfirmed = false,
                             FirstName = "John",
                             LastName = "Doe",
                             LockoutEnabled = false,
-                            Password = "password5",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "username5",

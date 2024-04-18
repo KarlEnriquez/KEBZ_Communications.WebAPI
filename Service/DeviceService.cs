@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Entities;
 using AutoMapper;
 using Shared.DataTransferObjects;
+using Microsoft.EntityFrameworkCore;
 using Entities.Exceptions;
 
 namespace Service
@@ -29,7 +30,21 @@ namespace Service
         {
             var DeviceEntity = _mapper.Map<Device>(Device);
             _repositoryManager.Device.CreateDevice(DeviceEntity);
-            _repositoryManager.Save();
+            try
+            {
+                _repositoryManager.Save();
+            }catch (DbUpdateException ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
+                return null;
+                throw new Exception("\n\n\n\n dbupdate exceiton \n\n\n\n");
+            }catch(Exception ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
+                return null;
+                throw new Exception("\n\n\n\n exceiton \n\n\n\n");
+            }
+
             var DeviceToReturn = _mapper.Map<DeviceDto>(DeviceEntity);
             return DeviceToReturn;
         }
