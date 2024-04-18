@@ -19,5 +19,6 @@ namespace Contracts
         void CreateDevice(Device device);
         void DeleteDevice(Device device);
         IEnumerable<Device> GetDevicesFromUserPlan(Guid userId, Guid userPlanId, bool trackChanges);
+        IEnumerable<Device> GetDevicesFromUser(Guid UserId, bool trackChanges);
     }
 }
