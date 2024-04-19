@@ -47,8 +47,8 @@ namespace KEBZ_Communications.Presentation.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id:guid}", Name = "UserById")]
-        public IActionResult GetUser(Guid id)
+        [HttpGet]
+        public IActionResult GetCurrentUser()
         {
             var User = _service.User.GetUser(GetUserId(), trackChanges: false);
             return Ok(User);
@@ -68,15 +68,15 @@ namespace KEBZ_Communications.Presentation.Controllers
             return CreatedAtRoute("UserById", new { id = createdUser.Id }, createdUser);
         }
 
-        [HttpDelete("{id:guid}")]
-        public IActionResult DeleteUser(Guid id)
+        [HttpDelete]
+        public IActionResult DeleteUser()
         {
             _service.User.DeleteUser(GetUserId(), trackChanges: false);
             return NoContent();
         }
 
-        [HttpPut("{id:guid}")]
-        public IActionResult UpdateUser(Guid id, [FromBody] UserForUpdateDto User)
+        [HttpPut]
+        public IActionResult UpdateUser( [FromBody] UserForUpdateDto User)
         {
             if (User == null)
                 return BadRequest("UserForUpdateDto object is null");
@@ -94,8 +94,8 @@ namespace KEBZ_Communications.Presentation.Controllers
         // /// Copy, Move, Test
         // /// Properties within a Patch Request:
         // /// op: operation, path: path to the property, value: value to be used
-        [HttpPatch("{id:guid}")]
-        public IActionResult PartiallyUpdateUser(Guid id, [FromBody] JsonPatchDocument<UserForUpdateDto> patchDocument)
+        [HttpPatch]
+        public IActionResult PartiallyUpdateUser( [FromBody] JsonPatchDocument<UserForUpdateDto> patchDocument)
         {
             if (patchDocument is null)
                 return BadRequest("patchDocument object sent from client is null");

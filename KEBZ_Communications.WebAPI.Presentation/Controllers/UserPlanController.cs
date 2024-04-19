@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
-    [Route("api/user/{UserId:guid}/userplan")]
+    [Route("api/userplan")]
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     [Authorize]
     public class UserPlanController : ControllerBase
@@ -38,14 +38,14 @@ namespace KEBZ_Communications.Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllUserPlans(Guid UserId)
+        public IActionResult GetAllUserPlans()
         {
             var UserPlans = _service.UserPlan.GetAllUserPlans(GetUserId(), trackChanges: false);
             return Ok(UserPlans);
         }
 
         [HttpGet("{id:guid}", Name = "UserPlanById")]
-        public IActionResult GetUserPlan(Guid UserId, Guid id)
+        public IActionResult GetUserPlan(Guid id)
         {
             var UserPlan = _service.UserPlan.GetUserPlan(GetUserId(), id, trackChanges: false);
             return Ok(UserPlan);
@@ -53,7 +53,7 @@ namespace KEBZ_Communications.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUserPlan(Guid UserId, [FromBody] UserPlanForCreationDto userPlan)
+        public IActionResult CreateUserPlan( [FromBody] UserPlanForCreationDto userPlan)
         {
             if (userPlan == null)
                 return BadRequest("UserPlanForCreationDto object is null");
@@ -65,7 +65,7 @@ namespace KEBZ_Communications.Presentation.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public IActionResult DeleteUserPlan(Guid UserId, Guid id)
+        public IActionResult DeleteUserPlan(Guid id)
         {
             _service.UserPlan.DeleteUserPlan(GetUserId(), id, trackChanges: false);
             return NoContent();

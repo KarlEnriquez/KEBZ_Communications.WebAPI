@@ -45,7 +45,7 @@ namespace KEBZ_Communications.Presentation.Controllers
             return Ok(Devices);
         }
 
-        [HttpGet("{id:guid}", Name = "DeviceById")]
+        [HttpGet("/byid/{id:guid}", Name = "DeviceById")]
         public IActionResult GetDevice(Guid id)
         {
             var Device = _service.Device.GetDevice(id, trackChanges: false);
@@ -56,15 +56,15 @@ namespace KEBZ_Communications.Presentation.Controllers
 
 
 
-        [HttpGet("{userId:guid}/{userPlanId:guid}", Name = "DevicesFromUserPlan")]
-        public IActionResult GetDevicesFromUserPlan(Guid userId, Guid userPlanId)
+        [HttpGet("{userPlanId:guid}", Name = "DevicesFromUserPlan")]
+        public IActionResult GetDevicesFromUserPlan(Guid userPlanId)
         {
             var Devices = _service.Device.GetDevicesFromUserPlan(GetUserId(), userPlanId, trackChanges: false);
             return Ok(Devices);
         }
 
-        [HttpGet("{userId:guid}/device", Name = "DevicesFromUser")]
-        public IActionResult GetDevicesFromUser(Guid userId)
+        [HttpGet("/currentuser", Name = "DevicesFromUser")]
+        public IActionResult GetDevicesFromUser()
         {
             var Devices = _service.Device.GetDevicesFromUser(GetUserId(), trackChanges: false);
             return Ok(Devices);
