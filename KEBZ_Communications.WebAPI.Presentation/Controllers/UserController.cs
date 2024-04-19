@@ -8,6 +8,7 @@ using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -15,11 +16,28 @@ namespace KEBZ_Communications.Presentation.Controllers
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     [Authorize]
 
+   
     public class UserController : ControllerBase
     {
         private readonly IServiceManager _service;
 
         public UserController(IServiceManager serviceManager) => _service = serviceManager;
+
+         protected Guid GetUserId()
+        {
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
+
+            if (!Guid.TryParse(userIdString, out Guid userId))
+            {
+                throw new ArgumentException("User ID is invalid.");
+            }
+
+            return userId;
+        }
 
 
         [HttpGet]
@@ -32,7 +50,7 @@ namespace KEBZ_Communications.Presentation.Controllers
         [HttpGet("{id:guid}", Name = "UserById")]
         public IActionResult GetUser(Guid id)
         {
-            var User = _service.User.GetUser(id, trackChanges: false);
+            var User = _service.User.GetUser(GetUserId(), trackChanges: false);
             return Ok(User);
 
         }
@@ -53,7 +71,7 @@ namespace KEBZ_Communications.Presentation.Controllers
         [HttpDelete("{id:guid}")]
         public IActionResult DeleteUser(Guid id)
         {
-            _service.User.DeleteUser(id, trackChanges: false);
+            _service.User.DeleteUser(GetUserId(), trackChanges: false);
             return NoContent();
         }
 
@@ -66,7 +84,7 @@ namespace KEBZ_Communications.Presentation.Controllers
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
 
-            _service.User.UpdateUser(id, User, trackChanges: true);
+            _service.User.UpdateUser(GetUserId(), User, trackChanges: true);
             return NoContent();
         }
 
@@ -82,7 +100,7 @@ namespace KEBZ_Communications.Presentation.Controllers
             if (patchDocument is null)
                 return BadRequest("patchDocument object sent from client is null");
 
-            var result = _service.User.GetUserForPatch(id, trackChanges: true);
+            var result = _service.User.GetUserForPatch(GetUserId(), trackChanges: true);
             patchDocument.ApplyTo(result.UserForUpdate);
 
             TryValidateModel(result.UserForUpdate);

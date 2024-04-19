@@ -8,6 +8,7 @@ using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -20,6 +21,22 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         public PlanController(IServiceManager serviceManager) => _service = serviceManager;
 
+
+         public Guid GetUserId()
+        {
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
+
+            if (!Guid.TryParse(userIdString, out Guid userId))
+            {
+                throw new ArgumentException("User ID is invalid.");
+            }
+
+            return userId;
+        }
 
          [HttpGet]
          [AllowAnonymous]

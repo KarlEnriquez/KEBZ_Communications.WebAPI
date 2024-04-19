@@ -8,6 +8,7 @@ using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -20,36 +21,52 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         public DeviceController(IServiceManager serviceManager) => _service = serviceManager;
 
+        public Guid GetUserId()
+        {
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
 
-         [HttpGet]
-         public IActionResult GetDevices()
-         {
-             var Devices = _service.Device.GetAllDevices(trackChanges: false);
-             return  Ok(Devices);
-         }
+            if (!Guid.TryParse(userIdString, out Guid userId))
+            {
+                throw new ArgumentException("User ID is invalid.");
+            }
 
-         [HttpGet("{id:guid}", Name = "DeviceById")]
-         public  IActionResult GetDevice(Guid id)
-         {
-             var Device =  _service.Device.GetDevice(id, trackChanges: false);
-             return Ok(Device);
-
-         }
+            return userId;
+        }
 
 
+        [HttpGet]
+        public IActionResult GetDevices()
+        {
+            var Devices = _service.Device.GetAllDevices(trackChanges: false);
+            return Ok(Devices);
+        }
 
-                
+        [HttpGet("{id:guid}", Name = "DeviceById")]
+        public IActionResult GetDevice(Guid id)
+        {
+            var Device = _service.Device.GetDevice(id, trackChanges: false);
+            return Ok(Device);
+
+        }
+
+
+
+
         [HttpGet("{userId:guid}/{userPlanId:guid}", Name = "DevicesFromUserPlan")]
         public IActionResult GetDevicesFromUserPlan(Guid userId, Guid userPlanId)
         {
-            var Devices = _service.Device.GetDevicesFromUserPlan(userId, userPlanId, trackChanges: false);
+            var Devices = _service.Device.GetDevicesFromUserPlan(GetUserId(), userPlanId, trackChanges: false);
             return Ok(Devices);
         }
 
         [HttpGet("{userId:guid}/device", Name = "DevicesFromUser")]
         public IActionResult GetDevicesFromUser(Guid userId)
         {
-            var Devices = _service.Device.GetDevicesFromUser(userId, trackChanges: false);
+            var Devices = _service.Device.GetDevicesFromUser(GetUserId(), trackChanges: false);
             return Ok(Devices);
         }
 

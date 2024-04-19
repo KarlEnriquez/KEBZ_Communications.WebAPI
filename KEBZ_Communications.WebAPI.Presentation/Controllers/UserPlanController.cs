@@ -8,10 +8,11 @@ using Service.Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 using Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
-    [Route("api/user/{UserId:guid}/userplan")] 
+    [Route("api/user/{UserId:guid}/userplan")]
     [ApiController] // Attribute routing, Auto 400 response, binding source parameter, multi-part/form-data inference, problem details for status codes
     [Authorize]
     public class UserPlanController : ControllerBase
@@ -20,17 +21,33 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         public UserPlanController(IServiceManager serviceManager) => _service = serviceManager;
 
+        public Guid GetUserId()
+        {
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
+
+            if (!Guid.TryParse(userIdString, out Guid userId))
+            {
+                throw new ArgumentException("User ID is invalid.");
+            }
+
+            return userId;
+        }
+
         [HttpGet]
         public IActionResult GetAllUserPlans(Guid UserId)
         {
-            var UserPlans = _service.UserPlan.GetAllUserPlans(UserId, trackChanges: false);
+            var UserPlans = _service.UserPlan.GetAllUserPlans(GetUserId(), trackChanges: false);
             return Ok(UserPlans);
         }
 
         [HttpGet("{id:guid}", Name = "UserPlanById")]
         public IActionResult GetUserPlan(Guid UserId, Guid id)
         {
-            var UserPlan = _service.UserPlan.GetUserPlan(UserId, id, trackChanges: false);
+            var UserPlan = _service.UserPlan.GetUserPlan(GetUserId(), id, trackChanges: false);
             return Ok(UserPlan);
 
         }
@@ -41,16 +58,16 @@ namespace KEBZ_Communications.Presentation.Controllers
             if (userPlan == null)
                 return BadRequest("UserPlanForCreationDto object is null");
 
-            userPlan.UserId = UserId; // Ensuring the UserId is set correctly in the DTO
+            userPlan.UserId = GetUserId(); // Ensuring the UserId is set correctly in the DTO
 
             var createdUserPlan = _service.UserPlan.CreateUserPlan(userPlan);
-            return CreatedAtRoute("UserPlanById", new { UserId = UserId, id = createdUserPlan.UserPlanId }, createdUserPlan);
+            return CreatedAtRoute("UserPlanById", new { UserId = GetUserId(), id = createdUserPlan.UserPlanId }, createdUserPlan);
         }
 
         [HttpDelete("{id:guid}")]
         public IActionResult DeleteUserPlan(Guid UserId, Guid id)
         {
-            _service.UserPlan.DeleteUserPlan(UserId, id, trackChanges: false);
+            _service.UserPlan.DeleteUserPlan(GetUserId(), id, trackChanges: false);
             return NoContent();
         }
 

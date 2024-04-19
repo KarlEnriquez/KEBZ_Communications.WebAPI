@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObjects;
+using System.Security.Claims;
+
 
 namespace KEBZ_Communications.Presentation.Controllers
 {
@@ -17,12 +19,29 @@ namespace KEBZ_Communications.Presentation.Controllers
 
         public AuthenticationController(IServiceManager serviceManager) => _service = serviceManager;
 
+
+        public Guid GetUserId()
+        {
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
+
+            if (!Guid.TryParse(userIdString, out Guid userId))
+            {
+                throw new ArgumentException("User ID is invalid.");
+            }
+
+            return userId;
+        }
+
         [HttpPost]
 
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
             var result = await _service.Authentication.RegisterUser(userForRegistration);
-            
+
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
@@ -41,7 +60,7 @@ namespace KEBZ_Communications.Presentation.Controllers
             {
                 return Unauthorized();
             }
-            
+
             return Ok(new { Token = await _service.Authentication.CreateToken(), userId = _service.Authentication.UserIDForClient(userForAuthentication).Result });
         }
     }
