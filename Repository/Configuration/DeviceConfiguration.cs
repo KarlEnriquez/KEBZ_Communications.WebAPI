@@ -85,7 +85,7 @@ namespace Repository.Configuration
                         Model = "IPhone",
                     }
               );
-              builder.HasAlternateKey(d => d.PhoneNumber).HasName("AlternateKey_PhoneNumber");
+            builder.HasIndex(u => u.PhoneNumber).IsUnique();
         }
     }
 }
