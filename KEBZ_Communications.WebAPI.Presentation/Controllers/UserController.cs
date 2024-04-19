@@ -40,12 +40,6 @@ namespace KEBZ_Communications.Presentation.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult GetUsers()
-        {
-            var users = _service.User.GetAllUsers(trackChanges: false);
-            return Ok(users);
-        }
 
         [HttpGet]
         public IActionResult GetCurrentUser()

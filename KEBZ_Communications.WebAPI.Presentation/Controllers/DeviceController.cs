@@ -39,9 +39,9 @@ namespace KEBZ_Communications.Presentation.Controllers
 
 
         [HttpGet]
-        public IActionResult GetDevices()
+        public IActionResult GetDevicesFromUser()
         {
-            var Devices = _service.Device.GetAllDevices(trackChanges: false);
+            var Devices = _service.Device.GetDevicesFromUser(GetUserId(), trackChanges: false);
             return Ok(Devices);
         }
 
@@ -63,13 +63,6 @@ namespace KEBZ_Communications.Presentation.Controllers
             return Ok(Devices);
         }
 
-        [HttpGet("/currentuser", Name = "DevicesFromUser")]
-        public IActionResult GetDevicesFromUser()
-        {
-            var Devices = _service.Device.GetDevicesFromUser(GetUserId(), trackChanges: false);
-            return Ok(Devices);
-        }
-
 
 
         [HttpPost]
@@ -77,6 +70,8 @@ namespace KEBZ_Communications.Presentation.Controllers
         {
             if (Device == null)
                 return BadRequest("DeviceForCreationDto object is null");
+
+            Device.UserId = GetUserId();
 
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
