@@ -35,7 +35,12 @@ namespace Service
         public async Task<string> CreateToken()
         {
             var signingCredentials = GetSigningCredentials();
-            var claims = await GetClaims();
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, _user.Id.ToString())
+            };
+
+            //var claims = await GetClaims();
             var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
 
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
@@ -69,6 +74,7 @@ namespace Service
 
             return _user.Id;
         }
+        
         private SigningCredentials GetSigningCredentials()
         {
             var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
