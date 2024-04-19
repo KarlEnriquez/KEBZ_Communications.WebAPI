@@ -22,6 +22,7 @@ namespace KEBZ_Communications.Presentation.Controllers
 
 
          [HttpGet]
+         [AllowAnonymous]
          public IActionResult GetPlans()
          {
              var Plans = _service.Plan.GetAllPlans(trackChanges: false);
